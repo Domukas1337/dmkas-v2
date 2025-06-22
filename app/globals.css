@@ -4,3 +4,11 @@ body {
   background-color: black;
   color: white;
 }
+
+.barlow {
+  font-family: var(--font-barlow);
+}
+
+.geist-mono {
+  font-family: var(--font-geist-mono);
+}
