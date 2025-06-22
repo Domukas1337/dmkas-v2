@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 body {
-  background-color: black;
+  background-color: #2f2c2c;
   color: white;
 }
 
@@ -11,4 +11,34 @@ body {
 
 .geist-mono {
   font-family: var(--font-geist-mono);
+}
+
+@keyframes fadein-from-top {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadein-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-from-top {
+  animation: fadein-from-top 1s ease-in-out;
+}
+
+.fade-in-from-left {
+  animation: fadein-from-left 1s ease-in-out;
 }
