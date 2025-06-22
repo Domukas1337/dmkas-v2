@@ -5,7 +5,7 @@ import { FaBook } from "react-icons/fa";
 
 export default function Navbar() {
   return (
-    <div className="bg-gray-700/50">
+    <div className="fixed top-0 left-0 right-0 bg-gray-700/50 backdrop-blur-lg">
       <div className="flex justify-between items-center p-4 mx-24">
         <Link
           href="/"
@@ -19,20 +19,61 @@ export default function Navbar() {
               Search
             </span>
             <div className="absolute top-full left-1/2 transform -translate-x-1/2 px-3 py-2 bg-gray-800 text-white text-sm rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 whitespace-nowrap">
-              <Link
-                href="about:blank"
-                className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-150 mx-2"
-              >
-                <FaPlay />
-                <span className="text-base font-black">Anime</span>
-              </Link>
-              <Link
-                href="about:blank"
-                className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-300 mt-5 mx-2"
-              >
-                <FaBook />
-                <span className="text-base font-black">Manga</span>
-              </Link>
+              <div className="flex flex-col">
+                <Link
+                  href="about:blank"
+                  className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-150 mx-2"
+                >
+                  <FaPlay />
+                  <span className="text-base font-black">Anime</span>
+                </Link>
+                <div className="flex flex-row">
+                  <Link
+                    href="about:blank"
+                    className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-150 mx-2"
+                  >
+                    <span className="text-xs font-black text-gray-500 hover:text-white transition-colors">
+                      Top 100
+                    </span>
+                  </Link>
+                  <Link
+                    href="about:blank"
+                    className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-150 mx-2"
+                  >
+                    <span className="text-xs font-black text-gray-500 hover:text-white transition-colors">
+                      Upcoming
+                    </span>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="flex flex-col">
+                <Link
+                  href="about:blank"
+                  className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-300 mt-5 mx-2"
+                >
+                  <FaBook />
+                  <span className="text-base font-black">Manga</span>
+                </Link>
+                <div className="flex flex-row">
+                  <Link
+                    href="about:blank"
+                    className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-150 mx-2"
+                  >
+                    <span className="text-xs font-black text-gray-500 hover:text-white transition-colors">
+                      Top 100
+                    </span>
+                  </Link>
+                  <Link
+                    href="about:blank"
+                    className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-150 mx-2"
+                  >
+                    <span className="text-xs font-black text-gray-500 hover:text-white transition-colors">
+                      Upcoming
+                    </span>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
           <Link
