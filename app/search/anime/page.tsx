@@ -1,3 +1,9 @@
+import Search from "@/components/Search";
+
 export default function Anime() {
-  return <div>anime</div>;
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <Search />
+    </div>
+  );
 }
