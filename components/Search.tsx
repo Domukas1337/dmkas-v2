@@ -3,6 +3,8 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
+import { CiSearch } from "react-icons/ci";
+
 const genres = [
   "Action",
   "Adventure",
@@ -37,7 +39,7 @@ export default function Search() {
   const [selectedGenre, setSelectedGenre] = useState(initialGenre);
   const [selectedYear, setSelectedYear] = useState(initialYear);
 
-  const handleSearch = () => {
+  function handleSearch() {
     const params = new URLSearchParams();
 
     params.set("q", searchQuery);
@@ -45,31 +47,15 @@ export default function Search() {
     params.set("year", selectedYear);
 
     router.push(`/search/anime?${params.toString()}`);
-  };
+  }
 
-  const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    e.preventDefault();
-    setSelectedGenre(e.target.value);
-    setTimeout(() => {
-      handleSearch();
-    }, 10);
-  };
-
-  const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    e.preventDefault();
-    setSelectedYear(e.target.value);
-    setTimeout(() => {
-      handleSearch();
-    }, 10);
-  };
-
-  const handleClear = () => {
+  function handleClear() {
     setSearchQuery("");
-    setSelectedGenre("Any");
-    setSelectedYear("Any");
+    setSelectedGenre("");
+    setSelectedYear("");
     router.push("/search/anime");
     window.location.reload();
-  };
+  }
 
   return (
     <div className="flex flex-row gap-10">
@@ -92,7 +78,8 @@ export default function Search() {
         <h1 className="font-black mb-2">Genre</h1>
         <select
           className="bg-gray-700 rounded-2xl p-2.5 pr-10"
-          onChange={(e) => handleGenreChange(e)}
+          value={selectedGenre}
+          onChange={(e) => setSelectedGenre(e.target.value)}
         >
           <option value="">Any</option>
           {genres.map((genre) => (
@@ -106,7 +93,8 @@ export default function Search() {
         <h1 className="font-black mb-2">Year</h1>
         <select
           className="bg-gray-700 rounded-2xl p-2.5 pr-10"
-          onChange={(e) => handleYearChange(e)}
+          value={selectedYear}
+          onChange={(e) => setSelectedYear(e.target.value)}
         >
           <option value="">Any</option>
           <option value={currentYear + 1}>{currentYear + 1}</option>
@@ -117,9 +105,21 @@ export default function Search() {
           ))}
         </select>
       </div>
-      <button className="bg-gray-700 rounded-2xl p-2" onClick={handleClear}>
-        Clear
-      </button>
+      <div className="flex gap-2">
+        <button
+          className="flex flex-row items-center bg-blue-600 rounded-2xl p-2 px-4 self-end hover:py-3 transition-all duration-150 hover:cursor-pointer"
+          onClick={handleSearch}
+        >
+          <CiSearch size={20} />
+          Search
+        </button>
+        <button
+          className="bg-gray-700 rounded-2xl p-2 self-end px-4 hover:py-3 transition-all duration-150 hover:cursor-pointer"
+          onClick={handleClear}
+        >
+          Clear
+        </button>
+      </div>
     </div>
   );
 }
