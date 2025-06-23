@@ -1,4 +1,76 @@
+"use client";
+
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
+
+const genres = [
+  "Action",
+  "Adventure",
+  "Comedy",
+  "Drama",
+  "Fantasy",
+  "Horror",
+  "Mecha",
+  "Mystery",
+  "Romance",
+  "Sci-Fi",
+  "Slice of Life",
+  "Sports",
+  "Supernatural",
+  "Thriller",
+];
+
 export default function Search() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const currentYear = new Date().getFullYear();
+  const years = Array.from({ length: 70 }, (_, index) =>
+    String(currentYear - index)
+  );
+
+  const initialQuery = searchParams.get("q") || "";
+  const initialGenre = searchParams.get("genre") || "";
+  const initialYear = searchParams.get("year") || "";
+
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
+  const [selectedGenre, setSelectedGenre] = useState(initialGenre);
+  const [selectedYear, setSelectedYear] = useState(initialYear);
+
+  const handleSearch = () => {
+    const params = new URLSearchParams();
+
+    params.set("q", searchQuery);
+    params.set("genre", selectedGenre);
+    params.set("year", selectedYear);
+
+    router.push(`/search/anime?${params.toString()}`);
+  };
+
+  const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    e.preventDefault();
+    setSelectedGenre(e.target.value);
+    setTimeout(() => {
+      handleSearch();
+    }, 10);
+  };
+
+  const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    e.preventDefault();
+    setSelectedYear(e.target.value);
+    setTimeout(() => {
+      handleSearch();
+    }, 10);
+  };
+
+  const handleClear = () => {
+    setSearchQuery("");
+    setSelectedGenre("Any");
+    setSelectedYear("Any");
+    router.push("/search/anime");
+    window.location.reload();
+  };
+
   return (
     <div className="flex flex-row gap-10">
       <div className="flex flex-col">
@@ -6,52 +78,48 @@ export default function Search() {
         <input
           className="bg-gray-700 rounded-2xl p-2"
           type="text"
-          placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search..."
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
         />
       </div>
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Genre</h1>
-        <select className="bg-gray-700 rounded-2xl p-2.5 pr-10">
+        <select
+          className="bg-gray-700 rounded-2xl p-2.5 pr-10"
+          onChange={(e) => handleGenreChange(e)}
+        >
           <option value="">Any</option>
-          <option value="Action">Action</option>
-          <option value="Adventure">Adventure</option>
-          <option value="Comedy">Comedy</option>
-          <option value="Drama">Drama</option>
-          <option value="Fantasy">Fantasy</option>
-          <option value="Horror">Horror</option>
-          <option value="Mystery">Mystery</option>
-          <option value="Romance">Romance</option>
-          <option value="Sci-Fi">Sci-Fi</option>
-          <option value="Thriller">Thriller</option>
-          <option value="Western">Western</option>
+          {genres.map((genre) => (
+            <option key={genre} value={genre}>
+              {genre}
+            </option>
+          ))}
         </select>
       </div>
-      <div>
+      <div className="flex flex-col">
         <h1 className="font-black mb-2">Year</h1>
-        <select className="bg-gray-700 rounded-2xl p-2.5 pr-10">
+        <select
+          className="bg-gray-700 rounded-2xl p-2.5 pr-10"
+          onChange={(e) => handleYearChange(e)}
+        >
           <option value="">Any</option>
-          <option value="2025">2025</option>
-          <option value="2024">2024</option>
-          <option value="2023">2023</option>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-          <option value="2020">2020</option>
-          <option value="2019">2019</option>
-          <option value="2018">2018</option>
-          <option value="2017">2017</option>
-          <option value="2016">2016</option>
-          <option value="2015">2015</option>
-          <option value="2014">2014</option>
-          <option value="2013">2013</option>
-          <option value="2012">2012</option>
-          <option value="2011">2011</option>
-          <option value="2010">2010</option>
-          <option value="2009">2009</option>
-          <option value="2008">2008</option>
-          <option value="2007">2007</option>
-          <option value="2006">2006</option>
+          <option value={currentYear + 1}>{currentYear + 1}</option>
+          {years.map((year) => (
+            <option key={year} value={year}>
+              {year}
+            </option>
+          ))}
         </select>
       </div>
+      <button className="bg-gray-700 rounded-2xl p-2" onClick={handleClear}>
+        Clear
+      </button>
     </div>
   );
 }
