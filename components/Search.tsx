@@ -34,10 +34,12 @@ export default function Search() {
   const initialQuery = searchParams.get("q") || "";
   const initialGenre = searchParams.get("genre") || "";
   const initialYear = searchParams.get("year") || "";
+  const initalSeason = searchParams.get("season") || "";
 
   const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [selectedGenre, setSelectedGenre] = useState(initialGenre);
   const [selectedYear, setSelectedYear] = useState(initialYear);
+  const [selectedSeason, setSelectedSeason] = useState(initalSeason);
 
   function handleSearch() {
     const params = new URLSearchParams();
@@ -53,6 +55,7 @@ export default function Search() {
     setSearchQuery("");
     setSelectedGenre("");
     setSelectedYear("");
+    setSelectedSeason("");
     router.push("/search/anime");
     window.location.reload();
   }
@@ -62,7 +65,7 @@ export default function Search() {
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Search</h1>
         <input
-          className="bg-gray-700 rounded-2xl p-2"
+          className="bg-gray-700 rounded-lg p-2"
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -77,7 +80,7 @@ export default function Search() {
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Genre</h1>
         <select
-          className="bg-gray-700 rounded-2xl p-2.5 pr-10"
+          className="bg-gray-700 rounded-lg p-2.5 pr-10"
           value={selectedGenre}
           onChange={(e) => setSelectedGenre(e.target.value)}
         >
@@ -92,7 +95,7 @@ export default function Search() {
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Year</h1>
         <select
-          className="bg-gray-700 rounded-2xl p-2.5 pr-10"
+          className="bg-gray-700 rounded-lg p-2.5 pr-10"
           value={selectedYear}
           onChange={(e) => setSelectedYear(e.target.value)}
         >
@@ -103,6 +106,20 @@ export default function Search() {
               {year}
             </option>
           ))}
+        </select>
+      </div>
+      <div>
+        <h1 className="font-black mb-2">Season</h1>
+        <select
+          className="bg-gray-700 rounded-lg p-2.5 pr-10"
+          value={selectedSeason}
+          onChange={(e) => setSelectedSeason(e.target.value)}
+        >
+          <option value="">Any</option>
+          <option value="winter">Winter</option>
+          <option value="spring">Spring</option>
+          <option value="summer">Summer</option>
+          <option value="fall">Fall</option>
         </select>
       </div>
       <div className="flex gap-2">
