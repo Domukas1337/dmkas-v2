@@ -22,7 +22,7 @@ const genres = [
   "Thriller",
 ];
 
-export default function Search() {
+export default function SearchAnime() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -47,6 +47,7 @@ export default function Search() {
     params.set("q", searchQuery);
     params.set("genre", selectedGenre);
     params.set("year", selectedYear);
+    params.set("season", selectedSeason);
 
     router.push(`/search/anime?${params.toString()}`);
   }
@@ -131,7 +132,120 @@ export default function Search() {
           Search
         </button>
         <button
-          className="bg-gray-700 rounded-2xl p-2 self-end px-4 hover:py-3 transition-all duration-150 hover:cursor-pointer"
+          className="bg-gray-700 rounded-2xl p-2 self-end px-4 hover:py-3 transition-all duration-150 hover:bg-white hover:text-black hover:cursor-pointer"
+          onClick={handleClear}
+        >
+          Clear
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export function SearchManga() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const initialQuery = searchParams.get("q") || "";
+  const initialGenre = searchParams.get("genre") || "";
+  const initialFormat = searchParams.get("format") || "";
+  const initialStatus = searchParams.get("status") || "";
+
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
+  const [selectedGenre, setSelectedGenre] = useState(initialGenre);
+  const [selectedFormat, setSelectedFormat] = useState(initialFormat);
+  const [selectedStatus, setSelectedStatus] = useState(initialStatus);
+
+  function handleSearch() {
+    const params = new URLSearchParams();
+
+    params.set("q", searchQuery);
+    params.set("genre", selectedGenre);
+    params.set("format", selectedFormat);
+    params.set("status", selectedStatus);
+
+    router.push(`/search/manga?${params.toString()}`);
+  }
+
+  function handleClear() {
+    setSearchQuery("");
+    setSelectedGenre("");
+    setSelectedFormat("");
+    setSelectedStatus("");
+    router.push("/search/anime");
+    window.location.reload();
+  }
+
+  return (
+    <div className="flex flex-row gap-10">
+      <div className="flex flex-col">
+        <h1 className="font-black mb-2">Search</h1>
+        <input
+          className="bg-gray-700 rounded-lg p-2"
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search..."
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
+        />
+      </div>
+      <div className="flex flex-col">
+        <h1 className="font-black mb-2">Genre</h1>
+        <select
+          className="bg-gray-700 rounded-lg p-2.5 pr-10"
+          value={selectedGenre}
+          onChange={(e) => setSelectedGenre(e.target.value)}
+        >
+          <option value="">Any</option>
+          {genres.map((genre) => (
+            <option key={genre} value={genre}>
+              {genre}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="flex flex-col">
+        <h1 className="font-black mb-2">Format</h1>
+        <select
+          className="bg-gray-700 rounded-lg p-2.5 pr-10"
+          value={selectedFormat}
+          onChange={(e) => setSelectedFormat(e.target.value)}
+        >
+          <option value="">Any</option>
+          <option value="lightnovel">Light Novel</option>
+          <option value="manga">Manga</option>
+          <option value="oneshot">One-shot</option>
+        </select>
+      </div>
+      <div>
+        <h1 className="font-black mb-2">Status</h1>
+        <select
+          className="bg-gray-700 rounded-lg p-2.5 pr-10"
+          value={selectedStatus}
+          onChange={(e) => setSelectedStatus(e.target.value)}
+        >
+          <option value="">Any</option>
+          <option value="Releasing">Releasing</option>
+          <option value="Finished">Finished</option>
+          <option value="NotYetReleased">Not Yet Released</option>
+          <option value="Hiatus">Hiatus</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+      <div className="flex gap-2">
+        <button
+          className="flex flex-row items-center bg-red-600 rounded-2xl p-2 px-4 self-end hover:py-3 transition-all duration-150 hover:cursor-pointer"
+          onClick={handleSearch}
+        >
+          <CiSearch size={20} />
+          Search
+        </button>
+        <button
+          className="bg-gray-700 rounded-2xl p-2 self-end px-4 hover:py-3 transition-all duration-150 hover:bg-white hover:text-black hover:cursor-pointer"
           onClick={handleClear}
         >
           Clear
