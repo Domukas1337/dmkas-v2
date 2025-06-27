@@ -22,10 +22,7 @@ export async function getAnime({
     );
 
     const data = await res.json();
-    const uniqueData = data.data.filter(
-      (anime, index: number, self) =>
-        index === self.findIndex((t) => t.mal_id === anime.mal_id)
-    );
-    return { data: uniqueData };
+
+    return data;
   }
 }
