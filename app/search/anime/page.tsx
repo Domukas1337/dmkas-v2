@@ -1,7 +1,8 @@
 "use client";
 import { getAnime } from "@/app/api/dataAnime";
+import type Anime from "@/app/types/Anime";
+import AnimeCard from "@/components/AnimeCard";
 import SearchAnime from "@/components/Search";
-import Image from "next/image";
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -21,6 +22,7 @@ export default function Anime() {
         return;
       }
       const data = await getAnime({ search, genre, year, status });
+      console.log(data);
 
       setAnimes(data.data);
     }
@@ -28,29 +30,19 @@ export default function Anime() {
     fetch();
   }, [search, genre, year, status]);
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
+    <div className="flex flex-col justify-center items-center mt-20 w-screen">
       <SearchAnime />
-      {!animes.length ? (
-        <h1 className="text-2xl">No results found</h1>
-      ) : (
-        <div className="flex flex-col gap-2">
-          {animes.map((anime: any, index: number) => (
-            <div key={index} className="flex gap-2">
-              <Image
-                width={200}
-                height={300}
-                src={anime.images.jpg.image_url}
-                alt={anime.title}
-                className="w-20 h-32"
-              />
-              <div className="flex flex-col gap-2">
-                <h1>{anime.title}</h1>
-                <p>{anime.synopsis}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="flex flex-row flex-wrap justify-center">
+        {!animes.length ? (
+          <h1 className="text-2xl">No results found</h1>
+        ) : (
+          <div className="flex flex-wrap gap-2">
+            {animes.map((anime: Anime, index: number) => (
+              <AnimeCard key={index} {...anime} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -518,7 +518,7 @@ export default function SearchAnime() {
   }
 
   return (
-    <div className="flex flex-row gap-10">
+    <div className="flex flex-row gap-10 mb-10">
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Search</h1>
         <input
@@ -632,7 +632,7 @@ export function SearchManga() {
   }
 
   return (
-    <div className="flex flex-row gap-10">
+    <div className="flex flex-row gap-10 mb-10">
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Search</h1>
         <input
