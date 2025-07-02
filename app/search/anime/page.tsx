@@ -36,7 +36,7 @@ export default function Anime() {
         {!animes.length ? (
           <h1 className="text-2xl">No results found</h1>
         ) : (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex justify-center flex-wrap gap-2">
             {animes.map((anime: Anime, index: number) => (
               <AnimeCard key={index} {...anime} />
             ))}

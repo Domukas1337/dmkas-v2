@@ -1,3 +1,5 @@
+import Anime from "../types/Anime";
+
 export async function getAnime({
   search,
   genre,
@@ -24,8 +26,8 @@ export async function getAnime({
     const data = await res.json();
 
     const uniqueData = data.data.filter(
-      (item: any, index: number) =>
-        data.data.findIndex((i: any) => i.mal_id === item.mal_id) === index
+      (item: Anime, index: number) =>
+        data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index
     );
 
     return uniqueData;
