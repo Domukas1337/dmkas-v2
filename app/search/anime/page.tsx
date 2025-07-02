@@ -32,7 +32,7 @@ export default function Anime() {
   return (
     <div className="flex flex-col justify-center items-center mt-20 w-screen">
       <SearchAnime />
-      <div className="flex flex-row flex-wrap justify-center">
+      <div className="flex flex-row flex-wrap justify-center z-0">
         {!animes.length ? (
           <h1 className="text-2xl">No results found</h1>
         ) : (
