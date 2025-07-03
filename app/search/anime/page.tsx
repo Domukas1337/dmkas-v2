@@ -2,6 +2,7 @@
 import { getAnime } from "@/app/api/dataAnime";
 import type Anime from "@/app/types/Anime";
 import AnimeCard from "@/components/AnimeCard";
+import AnimeDefaultPage from "@/components/AnimeDefaultPage";
 import SearchAnime from "@/components/Search";
 
 import { useSearchParams } from "next/navigation";
@@ -34,7 +35,7 @@ export default function Anime() {
       <SearchAnime />
       <div className="flex flex-row flex-wrap justify-center z-0">
         {!animes.length ? (
-          <h1 className="text-2xl">No results found</h1>
+          <AnimeDefaultPage />
         ) : (
           <div className="flex justify-center flex-wrap gap-2">
             {animes.map((anime: Anime, index: number) => (

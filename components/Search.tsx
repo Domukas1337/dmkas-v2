@@ -62,7 +62,7 @@ export default function SearchAnime() {
           }}
         />
       </div>
-      <div className="flex flex-col">
+      <div className="hidden flex-col lg:flex">
         <h1 className="font-black mb-2">Genre</h1>
         <select
           className="bg-gray-700 rounded-lg p-2.5 pr-10"
@@ -77,7 +77,7 @@ export default function SearchAnime() {
           ))}
         </select>
       </div>
-      <div className="flex flex-col">
+      <div className="hidden flex-col lg:flex">
         <h1 className="font-black mb-2">Year</h1>
         <select
           className="bg-gray-700 rounded-lg p-2.5 pr-10"
@@ -93,7 +93,7 @@ export default function SearchAnime() {
           ))}
         </select>
       </div>
-      <div>
+      <div className="hidden flex-col lg:flex">
         <h1 className="font-black mb-2">Status</h1>
         <select
           className="bg-gray-700 rounded-lg p-2.5 pr-10"
@@ -115,7 +115,7 @@ export default function SearchAnime() {
           Search
         </button>
         <button
-          className="bg-gray-700 rounded-2xl p-2 self-end px-4 hover:py-3 transition-all duration-150 hover:bg-white hover:text-black hover:cursor-pointer"
+          className="bg-gray-700 rounded-2xl p-2 self-end px-4 hover:py-3 transition-all duration-150 hover:bg-white hover:text-black hover:cursor-pointer hidden lg:flex"
           onClick={handleClear}
         >
           Clear
