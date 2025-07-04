@@ -1,6 +1,6 @@
 interface Anime {
   id: number;
-  title: string;
+  title_english: string;
   title_japanese: string;
   images: {
     jpg: {

@@ -34,7 +34,7 @@ export default function Anime() {
     <div className="flex flex-col justify-center items-center mt-20 w-screen">
       <SearchAnime />
       <div className="flex flex-row flex-wrap justify-center z-0">
-        {!animes.length ? (
+        {!search ? (
           <AnimeDefaultPage />
         ) : (
           <div className="flex justify-center flex-wrap gap-2">

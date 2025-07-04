@@ -8,7 +8,7 @@ export default function AnimeCard({
   episodes,
   status,
   genres,
-  title,
+  title_english,
   title_japanese,
   mal_id,
 }: Anime) {
@@ -27,18 +27,26 @@ export default function AnimeCard({
         />
         <div className="flex flex-col">
           <div className="">
-            {title.length > 20 && (
-              <h2 className="text-lg font-semibold">{title.slice(0, 22)}...</h2>
+            {title_english.length > 20 ? (
+              <h2 className="text-lg font-semibold">
+                {title_english.slice(0, 22)}...
+              </h2>
+            ) : (
+              <h2 className="text-lg font-semibold">{title_english}</h2>
             )}
+          </div>
+          {title_english === null && (
             <p className="text-sm text-gray-500 dark:text-gray-400">
               {title_japanese}
             </p>
-          </div>
+          )}
           <div className="flex flex-row gap-2">
             <p className="text-sm text-gray-500 dark:text-gray-400">{type}</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              {episodes} episodes
-            </p>
+            {episodes === null ? null : (
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                {episodes} episodes
+              </p>
+            )}
             <p className="text-sm text-gray-500 dark:text-gray-400">
               {genres.map((genre) => genre.name).join(", ")}
             </p>

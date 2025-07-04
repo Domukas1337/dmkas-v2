@@ -33,3 +33,12 @@ export async function getAnime({
     return uniqueData;
   }
 }
+
+export async function getCurrentSeason({ limit }: { limit: number }) {
+  const res = await fetch(
+    `https://api.jikan.moe/v4/seasons/now?limit=${limit}`
+  );
+  const data = await res.json();
+
+  return data;
+}
