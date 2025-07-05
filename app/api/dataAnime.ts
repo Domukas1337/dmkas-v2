@@ -40,5 +40,25 @@ export async function getCurrentSeason({ limit }: { limit: number }) {
   );
   const data = await res.json();
 
-  return data;
+  const uniqueData = data.data.filter(
+    (item: Anime, index: number) =>
+      data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index
+  );
+
+  return uniqueData;
+}
+
+export async function getUpcomingSeason({ limit }: { limit: number }) {
+  const res = await fetch(
+    `https://api.jikan.moe/v4/seasons/upcoming?limit=${limit}`
+  );
+
+  const data = await res.json();
+
+  const uniqueData = data.data.filter(
+    (item: Anime, index: number) =>
+      data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index
+  );
+
+  return uniqueData;
 }
