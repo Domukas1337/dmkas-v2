@@ -2,7 +2,7 @@
 
 import { getCurrentSeason, getUpcomingSeason } from "@/app/api/dataAnime";
 import { useEffect, useState } from "react";
-import AnimeCard from "./AnimeCard";
+import AnimeCard from "../../../../components/AnimeCard";
 import Anime from "@/app/types/Anime";
 import Link from "next/link";
 

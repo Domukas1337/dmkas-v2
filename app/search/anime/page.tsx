@@ -1,9 +1,12 @@
 "use client";
 import { getAnime } from "@/app/api/dataAnime";
+
 import type Anime from "@/app/types/Anime";
+
 import AnimeCard from "@/components/AnimeCard";
-import AnimeDefaultPage from "@/components/AnimeDefaultPage";
 import SearchAnime from "@/components/Search";
+
+import AnimeDefaultPage from "@/app/search/anime/pages/AnimeDefaultPage";
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
