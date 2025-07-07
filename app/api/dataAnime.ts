@@ -1,4 +1,4 @@
-import Anime from "../types/Anime";
+import type { Anime } from "../types/Anime";
 
 export async function getAnime({
   search,
@@ -34,7 +34,7 @@ export async function getAnime({
   }
 }
 
-export async function getCurrentSeason({ limit }: { limit: number }) {
+export async function getCurrentSeason({ limit }: { limit?: number }) {
   const res = await fetch(
     `https://api.jikan.moe/v4/seasons/now?limit=${limit}`
   );
@@ -48,7 +48,7 @@ export async function getCurrentSeason({ limit }: { limit: number }) {
   return uniqueData;
 }
 
-export async function getUpcomingSeason({ limit }: { limit: number }) {
+export async function getUpcomingSeason({ limit }: { limit?: number }) {
   const res = await fetch(
     `https://api.jikan.moe/v4/seasons/upcoming?limit=${limit}`
   );
@@ -61,4 +61,12 @@ export async function getUpcomingSeason({ limit }: { limit: number }) {
   );
 
   return uniqueData;
+}
+
+export async function getTopAnime({ limit }: { limit?: number }) {
+  const res = await fetch(`https://api.jikan.moe/v4/top/anime?limit=${limit}`);
+
+  const data = await res.json();
+
+  return data.data;
 }

@@ -18,4 +18,10 @@ interface Anime {
   mal_id: number;
 }
 
-export default Anime;
+interface TopAnime extends Anime {
+  rank: number;
+  score: number;
+  year: number;
+}
+
+export type { Anime, TopAnime };

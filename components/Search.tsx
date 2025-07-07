@@ -29,9 +29,9 @@ export default function SearchAnime() {
     const params = new URLSearchParams();
 
     params.set("q", searchQuery);
-    params.set("genre", selectedGenre);
-    params.set("year", selectedYear);
-    params.set("status", selectedStatus);
+    if (selectedGenre) params.set("genre", selectedGenre);
+    if (selectedYear) params.set("year", selectedYear);
+    if (selectedStatus) params.set("status", selectedStatus);
 
     router.push(`/search/anime?${params.toString()}`);
   }

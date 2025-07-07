@@ -1,4 +1,4 @@
-import type Anime from "@/app/types/Anime";
+import type { Anime } from "@/app/types/Anime";
 import Image from "next/image";
 import Link from "next/link";
 

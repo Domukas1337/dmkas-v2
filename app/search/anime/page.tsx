@@ -1,12 +1,12 @@
 "use client";
 import { getAnime } from "@/app/api/dataAnime";
 
-import type Anime from "@/app/types/Anime";
+import type { Anime } from "@/app/types/Anime";
 
 import AnimeCard from "@/components/AnimeCard";
 import SearchAnime from "@/components/Search";
 
-import AnimeDefaultPage from "@/app/search/anime/pages/AnimeDefaultPage";
+import AnimeDefaultPage from "@/app/search/anime/AnimeDefaultPage";
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -19,16 +19,18 @@ export default function Anime() {
   const status = params.get("status") || "";
 
   const [animes, setAnimes] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetch() {
       if (!search) {
         return;
       }
+      setLoading(true);
       const data = await getAnime({ search, genre, year, status });
-      console.log(data);
 
       setAnimes(data.data);
+      setLoading(false);
     }
 
     fetch();
@@ -39,12 +41,14 @@ export default function Anime() {
       <div className="flex flex-row flex-wrap justify-center z-0">
         {!search ? (
           <AnimeDefaultPage />
-        ) : (
+        ) : !loading ? (
           <div className="flex justify-center flex-wrap gap-2">
             {animes.map((anime: Anime, index: number) => (
               <AnimeCard key={index} {...anime} />
             ))}
           </div>
+        ) : (
+          <h1 className="text-3xl font-bold">Loading...</h1>
         )}
       </div>
     </div>
