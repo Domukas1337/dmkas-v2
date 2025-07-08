@@ -4,7 +4,7 @@ interface Anime {
   title_japanese: string;
   images: {
     jpg: {
-      image_url: string;
+      large_image_url: string;
     };
   };
   type: string;

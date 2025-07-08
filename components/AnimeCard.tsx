@@ -17,13 +17,13 @@ export default function AnimeCard({
       className="hover:scale-105 transition-all duration-200"
     >
       <div className="relative group">
-        <div className="flex flex-col ">
+        <div className="flex flex-col">
           <Image
-            src={images.jpg.image_url}
+            src={images.jpg.large_image_url}
             alt="anime"
             width={200}
             height={200}
-            className="rounded-md w-full object-cover"
+            className="rounded-md object-cover h-full"
           />
           <h1 className="text-md font-bold w-[200px] overflow-hidden text-ellipsis break-words">
             {title_english}

@@ -17,7 +17,7 @@ export default function TopAnimeCard({
     >
       <div className="flex flex-row items-center m-2 gap-4 bg-gray-400/30 rounded-md p-2">
         <h1
-          className={`text-xl font-bold ml-2 ${
+          className={`text-xl font-black ml-2 ${
             rank === 1
               ? "text-yellow-300"
               : rank === 2
@@ -30,7 +30,7 @@ export default function TopAnimeCard({
           {rank}#
         </h1>
         <Image
-          src={images.jpg.image_url}
+          src={images.jpg.large_image_url}
           alt="anime"
           width={40}
           height={40}

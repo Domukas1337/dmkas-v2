@@ -38,19 +38,17 @@ export default function Anime() {
   return (
     <div className="flex flex-col justify-center items-center mt-20 w-screen">
       <SearchAnime />
-      <div className="flex flex-row flex-wrap justify-center z-0">
-        {!search ? (
-          <AnimeDefaultPage />
-        ) : !loading ? (
-          <div className="flex justify-center flex-wrap gap-2">
-            {animes.map((anime: Anime, index: number) => (
-              <AnimeCard key={index} {...anime} />
-            ))}
-          </div>
-        ) : (
-          <h1 className="text-3xl font-bold">Loading...</h1>
-        )}
-      </div>
+      {!search ? (
+        <AnimeDefaultPage />
+      ) : !loading ? (
+        <div className="flex flex-wrap justify-center gap-2">
+          {animes.map((anime: Anime, index: number) => (
+            <AnimeCard key={index} {...anime} />
+          ))}
+        </div>
+      ) : (
+        <h1 className="text-3xl font-bold">Loading...</h1>
+      )}
     </div>
   );
 }

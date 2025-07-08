@@ -18,6 +18,7 @@ export default function AnimeDefaultPage() {
   const [currentSeason, setCurrentSeason] = useState([]);
   const [upcomingSeason, setUpcomingSeason] = useState([]);
   const [topAnime, setTopAnime] = useState([]);
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -26,6 +27,9 @@ export default function AnimeDefaultPage() {
 
       const currentSeasonData = await getCurrentSeason({ limit: 10 });
       setCurrentSeason(currentSeasonData);
+
+      // wait 1 second so that person doesn't get rate limited
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       const upcomingSeasonData = await getUpcomingSeason({ limit: 10 });
       setUpcomingSeason(upcomingSeasonData);
@@ -94,7 +98,7 @@ export default function AnimeDefaultPage() {
         </div>
         <div className="flex flex-col justify-center flex-wrap gap-4">
           {loading ? (
-            <p>Loading...</p>
+            <p className="text-center">Loading...</p>
           ) : (
             topAnime.map((anime: TopAnime, index: number) => {
               return <TopAnimeCard key={index} {...anime} />;
