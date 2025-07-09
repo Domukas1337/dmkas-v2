@@ -11,33 +11,31 @@ import type { Anime, TopAnime } from "@/app/types/Anime";
 import Link from "next/link";
 import TopAnimeCard from "@/components/TopAnimeCard";
 
-// TODO: add upcoming next season anime (doing this now)
-// TODO: add top anime that leads to the top page
+// TODO: add top anime that leads to the top page (50% done)
 
 export default function AnimeDefaultPage() {
   const [currentSeason, setCurrentSeason] = useState([]);
   const [upcomingSeason, setUpcomingSeason] = useState([]);
   const [topAnime, setTopAnime] = useState([]);
 
-  const [loading, setLoading] = useState(false);
+  const [loadingCurrentSeason, setIsLoadingCurrentSeason] = useState(true);
+  const [loadingUpcomingSeason, setIsLoadingUpcomingSeason] = useState(true);
+  const [loadingTop, setLoadingTop] = useState(true);
 
   useEffect(() => {
     async function fetch() {
-      setLoading(true);
-
       const currentSeasonData = await getCurrentSeason({ limit: 10 });
       setCurrentSeason(currentSeasonData);
-
-      // wait 1 second so that person doesn't get rate limited
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setIsLoadingCurrentSeason(false);
 
       const upcomingSeasonData = await getUpcomingSeason({ limit: 10 });
       setUpcomingSeason(upcomingSeasonData);
+      setIsLoadingUpcomingSeason(false);
 
       const topAnimeData = await getTopAnime({ limit: 10 });
       setTopAnime(topAnimeData);
 
-      setLoading(false);
+      setLoadingTop(false);
     }
     fetch();
   }, []);
@@ -55,7 +53,7 @@ export default function AnimeDefaultPage() {
           </Link>
         </div>
         <div className="flex flex-row justify-center flex-wrap gap-4">
-          {loading ? (
+          {loadingCurrentSeason ? (
             <p>Loading...</p>
           ) : (
             currentSeason.map((anime: Anime, index: number) => {
@@ -76,7 +74,7 @@ export default function AnimeDefaultPage() {
           </Link>
         </div>
         <div className="flex flex-row justify-center flex-wrap gap-4">
-          {loading ? (
+          {loadingUpcomingSeason ? (
             <p>Loading...</p>
           ) : (
             upcomingSeason.map((anime: Anime, index: number) => {
@@ -97,7 +95,7 @@ export default function AnimeDefaultPage() {
           </Link>
         </div>
         <div className="flex flex-col justify-center flex-wrap gap-4">
-          {loading ? (
+          {loadingTop ? (
             <p className="text-center">Loading...</p>
           ) : (
             topAnime.map((anime: TopAnime, index: number) => {

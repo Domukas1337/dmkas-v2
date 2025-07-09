@@ -64,7 +64,9 @@ export async function getUpcomingSeason({ limit }: { limit?: number }) {
 }
 
 export async function getTopAnime({ limit }: { limit?: number }) {
-  const res = await fetch(`https://api.jikan.moe/v4/top/anime?limit=${limit}`);
+  const res = await fetch(`https://api.jikan.moe/v4/top/anime?limit=${limit}`, {
+    cache: "force-cache",
+  });
 
   const data = await res.json();
 
