@@ -50,7 +50,10 @@ export async function getCurrentSeason({ limit }: { limit?: number }) {
 
 export async function getUpcomingSeason({ limit }: { limit?: number }) {
   const res = await fetch(
-    `https://api.jikan.moe/v4/seasons/upcoming?limit=${limit}`
+    `https://api.jikan.moe/v4/seasons/upcoming?limit=${limit}`,
+    {
+      cache: "default",
+    }
   );
 
   const data = await res.json();

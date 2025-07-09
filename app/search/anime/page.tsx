@@ -6,7 +6,7 @@ import type { Anime } from "@/app/types/Anime";
 import AnimeCard from "@/components/AnimeCard";
 import SearchAnime from "@/components/Search";
 
-import AnimeDefaultPage from "@/app/search/anime/AnimeDefaultPage";
+import AnimeDefaultPage from "@/components/AnimeDefaultPage";
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
