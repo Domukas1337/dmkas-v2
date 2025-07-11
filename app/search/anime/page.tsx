@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 
 export default function Anime() {
   const params = useSearchParams();
+
   const search = params.get("q") || "";
   const genre = Number(params.get("genre")) || 0;
   const year = params.get("year") || "";
@@ -26,10 +27,11 @@ export default function Anime() {
       if (!search) {
         return;
       }
+
       setLoading(true);
       const data = await getAnime({ search, genre, year, status });
 
-      setAnimes(data.data);
+      setAnimes(data);
       setLoading(false);
     }
 

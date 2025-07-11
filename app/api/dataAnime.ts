@@ -17,7 +17,8 @@ export async function getAnime({
     );
 
     const data = await res.json();
-    return data;
+
+    return data.data;
   } else {
     const res = await fetch(
       `https://api.jikan.moe/v4/anime?q=${search}&genres=${genre}&start_date=${`${year}-01-01`}&end_date=${`${year}-12-31`}&status=${status}`
@@ -49,6 +50,7 @@ export async function getCurrentSeason({ limit }: { limit?: number }) {
 }
 
 export async function getUpcomingSeason({ limit }: { limit?: number }) {
+  // artificial limit (need to remove)
   await new Promise((resolve) => setTimeout(resolve, 1000));
   const res = await fetch(
     `https://api.jikan.moe/v4/seasons/upcoming?limit=${limit}`,
