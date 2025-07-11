@@ -34,7 +34,6 @@ export default function AnimeDefaultPage() {
 
       const topAnimeData = await getTopAnime({ limit: 10 });
       setTopAnime(topAnimeData);
-
       setLoadingTop(false);
     }
     fetch();

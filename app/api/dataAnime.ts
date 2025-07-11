@@ -49,6 +49,7 @@ export async function getCurrentSeason({ limit }: { limit?: number }) {
 }
 
 export async function getUpcomingSeason({ limit }: { limit?: number }) {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const res = await fetch(
     `https://api.jikan.moe/v4/seasons/upcoming?limit=${limit}`,
     {

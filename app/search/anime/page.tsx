@@ -35,6 +35,7 @@ export default function Anime() {
 
     fetch();
   }, [search, genre, year, status]);
+
   return (
     <div className="flex flex-col justify-center items-center mt-20 w-screen">
       <SearchAnime />
