@@ -1,15 +1,17 @@
 interface Anime {
   id: number;
+  title: string;
   title_english: string;
   title_japanese: string;
   images: {
-    jpg: {
+    webp: {
       large_image_url: string;
     };
   };
   type: string;
   episodes: number;
   status: string;
+  score: number;
   genres: [
     {
       name: string;
@@ -20,7 +22,6 @@ interface Anime {
 
 interface TopAnime extends Anime {
   rank: number;
-  score: number;
   year: number;
 }
 

@@ -42,7 +42,7 @@ export default function AnimeDefaultPage() {
   return (
     <div className="flex justify-center items-center">
       <div className="flex flex-col">
-        <div className="flex flex-row justify-between items-center mx-2 md:mx-10 mb-2">
+        <div className="flex flex-row justify-between items-center mx-14 md:mx-2 mb-2">
           <h1 className="text-xl font-black uppercase">Current season</h1>
           <Link
             href="/search/anime/current"
@@ -63,7 +63,7 @@ export default function AnimeDefaultPage() {
             })
           )}
         </div>
-        <div className="flex flex-row justify-between items-center mx-2 md:mx-10 mt-4 mb-2">
+        <div className="flex flex-row justify-between items-center mx-14 md:mx-2 mt-4 mb-2">
           <h1 className="text-xl font-black uppercase">Upcoming season</h1>
           <Link
             href="/search/anime/upcoming"
@@ -84,7 +84,7 @@ export default function AnimeDefaultPage() {
             })
           )}
         </div>
-        <div className="flex flex-row justify-between items-center mx-2 md:mx-10 mt-4 mb-2">
+        <div className="flex flex-row justify-between items-center mx-14 md:mx-2 mt-4 mb-2">
           <h1 className="text-xl font-black uppercase">Top 100</h1>
           <Link
             href="/search/anime/upcoming"
@@ -93,7 +93,7 @@ export default function AnimeDefaultPage() {
             See more
           </Link>
         </div>
-        <div className="flex flex-col justify-center flex-wrap gap-4">
+        <div className="flex flex-col justify-center flex-wrap gap-2 mx-20">
           {loadingTop ? (
             <p className="text-center">Loading...</p>
           ) : (

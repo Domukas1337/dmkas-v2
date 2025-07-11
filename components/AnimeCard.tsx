@@ -6,35 +6,79 @@ export default function AnimeCard({
   images,
   type,
   episodes,
-  status,
   genres,
+  title,
   title_english,
+  title_japanese,
   mal_id,
+  score,
 }: Anime) {
   return (
     <Link
       href={`/anime/details?id=${mal_id}`}
       className="hover:scale-105 transition-all duration-200"
     >
-      <div className="relative group">
-        <div className="flex flex-col">
+      <div className="relative group bg-gray-800 rounded-lg overflow-hidden w-[280px]">
+        <div className="relative h-[200px] overflow-hidden">
           <Image
-            src={images.jpg.large_image_url}
+            src={images.webp.large_image_url}
             alt="anime"
-            width={200}
-            height={200}
-            className="rounded-md object-cover h-full"
+            fill
+            className="object-cover opacity-80 group:hover:opacity-100 transition-opacity duration-300"
           />
-          <h1 className="text-md font-bold w-[200px] overflow-hidden text-ellipsis break-words">
-            {title_english}
-          </h1>
+          <div className="absolute top-2 right-2 flex items-center gap-2 bg-black/50 rounded-full px-2 py-1">
+            <div
+              className={`w-5 h-5 rounded-full ${
+                score > 8
+                  ? "bg-green-500"
+                  : score <= 8 && score > 5
+                  ? "bg-yellow-500"
+                  : score <= 5 && score > 3
+                  ? "bg-orange-500"
+                  : !score
+                  ? "bg-gray-500"
+                  : "bg-red-500"
+              } flex items-center justify-center`}
+            >
+              <span className="text-xs">
+                {score > 8
+                  ? "A"
+                  : score <= 8 && score > 5
+                  ? "B"
+                  : score <= 5 && score > 3
+                  ? "C"
+                  : !score
+                  ? null
+                  : "D"}
+              </span>
+            </div>
+            <span className="text-white font-bold text-sm">
+              {score || "N/A"}
+            </span>
+          </div>
         </div>
-        <div className="absolute top-0 left-0 right-0 bottom-0 bg-gray-700/50 backdrop-blur-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
-          <div className="flex flex-col gap-2">
-            <h1 className="text-sm">{type}</h1>
-            <h1 className="text-sm">{status}</h1>
-            <h1 className="text-sm">{episodes}</h1>
-            {genres.map((genre) => genre.name).join(", ")}
+
+        <div className="p-4 space-y-3">
+          <div>
+            <h2 className="text-white font-bold text-lg">
+              {title_english || title}
+            </h2>
+            <h3 className="text-gray-300 text-sm">{title_japanese}</h3>
+            <p className="text-gray-300 text-sm">
+              {type} • {!episodes ? "Unknown" : episodes}{" "}
+              {!episodes ? null : "Episodes"}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {genres.slice(0, 3).map((genre, index) => (
+              <span
+                key={index}
+                className="bg-blue-400 text-white text-xs font-medium px-3 py-1 rounded-full"
+              >
+                {genre.name}
+              </span>
+            ))}
           </div>
         </div>
       </div>

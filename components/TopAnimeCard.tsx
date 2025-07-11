@@ -30,7 +30,7 @@ export default function TopAnimeCard({
           {rank}#
         </h1>
         <Image
-          src={images.jpg.large_image_url}
+          src={images.webp.large_image_url}
           alt="anime"
           width={40}
           height={40}

@@ -42,7 +42,7 @@ export default function Anime() {
       {!search ? (
         <AnimeDefaultPage />
       ) : !loading ? (
-        <div className="flex flex-wrap justify-center gap-2">
+        <div className="flex flex-wrap justify-center gap-10 mx-0 md:mx-20">
           {animes.map((anime: Anime, index: number) => (
             <AnimeCard key={index} {...anime} />
           ))}
