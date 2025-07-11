@@ -18,7 +18,7 @@ export default function AnimeCard({
       href={`/anime/details?id=${mal_id}`}
       className="hover:scale-105 transition-all duration-200"
     >
-      <div className="relative group bg-gray-800 rounded-lg overflow-hidden w-[280px]">
+      <div className="relative group bg-gray-800 rounded-lg overflow-hidden w-[280px] h-full flex flex-col">
         <div className="relative h-[200px] overflow-hidden">
           <Image
             src={images.webp.large_image_url}

@@ -1,5 +1,4 @@
 interface Anime {
-  id: number;
   title: string;
   title_english: string;
   title_japanese: string;
@@ -22,7 +21,6 @@ interface Anime {
 
 interface TopAnime extends Anime {
   rank: number;
-  year: number;
 }
 
 export type { Anime, TopAnime };
