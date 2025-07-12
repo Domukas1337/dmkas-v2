@@ -11,6 +11,7 @@ export default function AnimeCard({
   title_english,
   title_japanese,
   mal_id,
+  status,
   score,
 }: Anime) {
   return (
@@ -24,8 +25,11 @@ export default function AnimeCard({
             src={images.webp.large_image_url}
             alt="anime"
             fill
-            className="object-cover opacity-80 group:hover:opacity-100 transition-opacity duration-300"
+            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
           />
+          <div className="absolute top-2 left-2 bg-black/50 rounded-full px-2 py-1">
+            <p className="text-white text-sm">{status}</p>
+          </div>
           <div className="absolute top-2 right-2 flex items-center gap-2 bg-black/50 rounded-full px-2 py-1">
             <div
               className={`w-5 h-5 rounded-full ${

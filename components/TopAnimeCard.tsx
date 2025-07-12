@@ -57,7 +57,7 @@ export default function TopAnimeCard({
             </div>
           </div>
 
-          <div className="flex flex-row justify-center items-center gap-2 bg-gray-400/30 rounded-xl p-2 w-[100px]">
+          <div className="sm:flex flex-row justify-center items-center gap-2 bg-gray-400/30 rounded-xl p-2 w-[100px] hidden">
             <div
               className={`w-5 h-5 rounded-full ${
                 score > 8

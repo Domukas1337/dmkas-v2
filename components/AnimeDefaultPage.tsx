@@ -93,7 +93,7 @@ export default function AnimeDefaultPage() {
             See more
           </Link>
         </div>
-        <div className="flex flex-col justify-center flex-wrap gap-2 mx-20">
+        <div className="flex flex-col justify-center flex-wrap gap-2 mx-2 md:mx-20">
           {loadingTop ? (
             <p className="text-center">Loading...</p>
           ) : (

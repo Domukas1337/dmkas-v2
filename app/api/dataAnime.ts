@@ -15,10 +15,14 @@ export async function getAnime({
     const res = await fetch(
       `https://api.jikan.moe/v4/anime?q=${search}&genres=${genre}&status=${status}`
     );
-
     const data = await res.json();
 
-    return data.data;
+    const uniqueData = data.data.filter(
+      (item: Anime, index: number) =>
+        data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index
+    );
+
+    return uniqueData;
   } else {
     const res = await fetch(
       `https://api.jikan.moe/v4/anime?q=${search}&genres=${genre}&start_date=${`${year}-01-01`}&end_date=${`${year}-12-31`}&status=${status}`
