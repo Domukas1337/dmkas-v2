@@ -73,12 +73,32 @@ export async function getUpcomingSeason({ limit }: { limit?: number }) {
   return uniqueData;
 }
 
-export async function getTopAnime({ limit }: { limit?: number }) {
-  const res = await fetch(`https://api.jikan.moe/v4/top/anime?limit=${limit}`, {
-    cache: "force-cache",
-  });
+export async function getTopAnime({
+  limit,
+  page,
+}: {
+  limit?: number;
+  page?: number;
+}) {
+  if (page) {
+    const res = await fetch(
+      `https://api.jikan.moe/v4/top/anime?limit=${limit}&page=${page}`,
+      {
+        cache: "force-cache",
+      }
+    );
+    const data = await res.json();
 
-  const data = await res.json();
+    return data.data;
+  } else {
+    const res = await fetch(
+      `https://api.jikan.moe/v4/top/anime?limit=${limit}`,
+      {
+        cache: "force-cache",
+      }
+    );
+    const data = await res.json();
 
-  return data.data;
+    return data.data;
+  }
 }

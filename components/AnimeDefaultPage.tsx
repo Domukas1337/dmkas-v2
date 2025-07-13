@@ -10,6 +10,7 @@ import AnimeCard from "./AnimeCard";
 import type { Anime, TopAnime } from "@/app/types/Anime";
 import Link from "next/link";
 import TopAnimeCard from "@/components/TopAnimeCard";
+import Spinner from "./Spinner";
 
 // TODO: add top anime that leads to the top page (50% done)
 
@@ -53,7 +54,7 @@ export default function AnimeDefaultPage() {
         </div>
         <div className="flex flex-row justify-center flex-wrap gap-4">
           {loadingCurrentSeason ? (
-            <p>Loading...</p>
+            <Spinner />
           ) : (
             currentSeason.map((anime: Anime, index: number) => {
               if (index >= 5) {
@@ -74,7 +75,7 @@ export default function AnimeDefaultPage() {
         </div>
         <div className="flex flex-row justify-center flex-wrap gap-4">
           {loadingUpcomingSeason ? (
-            <p>Loading...</p>
+            <Spinner />
           ) : (
             upcomingSeason.map((anime: Anime, index: number) => {
               if (index >= 5) {
@@ -95,7 +96,7 @@ export default function AnimeDefaultPage() {
         </div>
         <div className="flex flex-col justify-center flex-wrap gap-2 mx-2 md:mx-20">
           {loadingTop ? (
-            <p className="text-center">Loading...</p>
+            <Spinner />
           ) : (
             topAnime.map((anime: TopAnime, index: number) => {
               return <TopAnimeCard key={index} {...anime} />;
