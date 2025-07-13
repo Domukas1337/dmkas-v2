@@ -13,7 +13,7 @@ export default function TopAnimeCard({
 }: TopAnime) {
   return (
     <Link
-      href={`/anime/details?id=${mal_id}`}
+      href={`/search/anime/details?id=${mal_id}`}
       className=" hover:scale-105 transition-all duration-200"
     >
       <div className="flex flex-row items-center m-2 gap-4 bg-gray-400/30 rounded-md p-2">

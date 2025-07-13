@@ -1,57 +1,49 @@
-"use client";
 import { getAnime } from "@/app/api/dataAnime";
-
 import type { Anime } from "@/app/types/Anime";
-
 import AnimeCard from "@/components/AnimeCard";
 import SearchAnime from "@/components/Search";
-
 import AnimeDefaultPage from "@/components/AnimeDefaultPage";
+import { Suspense } from "react";
+import Loading from "./loading";
 
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+interface AnimePageProps {
+  searchParams: Promise<{
+    q?: string;
+    genre?: string;
+    year?: string;
+    status?: string;
+  }>;
+}
 
-export default function Anime() {
-  const params = useSearchParams();
+async function AnimeResults({ searchParams }: AnimePageProps) {
+  const params = await searchParams;
+  const search = params.q || "";
+  const genre = Number(params.genre) || 0;
+  const year = params.year || "";
+  const status = params.status || "";
 
-  const search = params.get("q") || "";
-  const genre = Number(params.get("genre")) || 0;
-  const year = params.get("year") || "";
-  const status = params.get("status") || "";
+  if (!search) {
+    return <AnimeDefaultPage />;
+  }
 
-  const [animes, setAnimes] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const animes = await getAnime({ search, genre, year, status });
 
-  useEffect(() => {
-    async function fetch() {
-      if (!search) {
-        return;
-      }
+  return (
+    <div className="flex flex-wrap justify-center items-stretch gap-10 mx-0 md:mx-20">
+      {animes.map((anime: Anime, index: number) => (
+        <AnimeCard key={index} {...anime} />
+      ))}
+    </div>
+  );
+}
 
-      setLoading(true);
-      const data = await getAnime({ search, genre, year, status });
-
-      setAnimes(data);
-      setLoading(false);
-    }
-
-    fetch();
-  }, [search, genre, year, status]);
-
+export default async function Anime({ searchParams }: AnimePageProps) {
   return (
     <div className="flex flex-col justify-center items-center mt-20 w-screen">
       <SearchAnime />
-      {!search ? (
-        <AnimeDefaultPage />
-      ) : !loading ? (
-        <div className="flex flex-wrap justify-center items-stretch gap-10 mx-0 md:mx-20">
-          {animes.map((anime: Anime, index: number) => (
-            <AnimeCard key={index} {...anime} />
-          ))}
-        </div>
-      ) : (
-        <h1 className="text-3xl font-bold">Loading...</h1>
-      )}
+      <Suspense fallback={<Loading />}>
+        <AnimeResults searchParams={searchParams} />
+      </Suspense>
     </div>
   );
 }
