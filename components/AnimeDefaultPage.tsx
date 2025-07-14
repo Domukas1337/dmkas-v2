@@ -8,19 +8,15 @@ import type { Anime, TopAnime } from "@/app/types/Anime";
 import Link from "next/link";
 import TopAnimeCard from "@/components/TopAnimeCard";
 
-// TODO: add top anime that leads to the top page (50% done)
-
 export default async function AnimeDefaultPage() {
   const currentSeason = await getCurrentSeason({ limit: 10 });
-
   const upcomingSeason = await getUpcomingSeason({ limit: 10 });
-
   const topAnime = await getTopAnime({ limit: 10 });
 
   return (
     <div className="flex justify-center items-center">
       <div className="flex flex-col">
-        <div className="flex flex-row justify-between items-center mx-14 md:mx-2 mb-2">
+        <div className="flex flex-row justify-between items-center mx-14 md:mx-2 mb-4">
           <h1 className="text-xl font-black uppercase">Current season</h1>
           <Link
             href="/search/anime/current"
@@ -37,7 +33,7 @@ export default async function AnimeDefaultPage() {
             return <AnimeCard key={index} {...anime} />;
           })}
         </div>
-        <div className="flex flex-row justify-between items-center mx-14 md:mx-2 mt-4 mb-2">
+        <div className="flex flex-row justify-between items-center mx-14 md:mx-2 mt-4 mb-4">
           <h1 className="text-xl font-black uppercase">Upcoming season</h1>
           <Link
             href="/search/anime/upcoming"

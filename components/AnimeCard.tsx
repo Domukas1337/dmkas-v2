@@ -16,7 +16,7 @@ export default function AnimeCard({
 }: Anime) {
   return (
     <Link
-      href={`/search/anime/details?id=${mal_id}`}
+      href={`/search/anime/details/${mal_id}`}
       className="hover:scale-105 transition-all duration-200"
     >
       <div className="relative group bg-gray-800 rounded-lg overflow-hidden w-[280px] h-full flex flex-col">
