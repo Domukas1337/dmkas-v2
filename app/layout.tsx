@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "DMKAS",
-  description: "DMKAS - A manga and anime website",
+  description: "DMKAS - A manga and anime searching website",
 };
 
 export default function RootLayout({

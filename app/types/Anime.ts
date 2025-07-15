@@ -11,6 +11,11 @@ interface Anime {
   episodes: number;
   status: string;
   score: number;
+  rank: number;
+  synopsis: string;
+  trailer: {
+    url: string;
+  };
   genres: [
     {
       name: string;
@@ -18,9 +23,4 @@ interface Anime {
   ];
   mal_id: number;
 }
-
-interface TopAnime extends Anime {
-  rank: number;
-}
-
-export type { Anime, TopAnime };
+export type { Anime };

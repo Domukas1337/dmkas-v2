@@ -1,4 +1,4 @@
-import type { TopAnime } from "@/app/types/Anime";
+import type { Anime } from "@/app/types/Anime";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,7 +10,7 @@ export default function TopAnimeCard({
   genres,
   score,
   rank,
-}: TopAnime) {
+}: Anime) {
   return (
     <Link
       href={`/search/anime/details/${mal_id}`}
