@@ -1,6 +1,6 @@
 import type { Anime } from "../types/Anime";
 
-export async function getAnime({
+export async function getAnimeBySearch({
   search,
   genre,
   year,
@@ -101,4 +101,12 @@ export async function getTopAnime({
 
     return data.data;
   }
+}
+
+export async function getAnimeDetails({ id }: { id: number }) {
+  const res = await fetch(`https://api.jikan.moe/v4/anime/${id}`, {
+    cache: "force-cache",
+  });
+  const data = await res.json();
+  return data;
 }

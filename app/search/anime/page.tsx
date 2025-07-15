@@ -1,4 +1,4 @@
-import { getAnime } from "@/app/api/dataAnime";
+import { getAnimeBySearch } from "@/app/api/dataAnime";
 import type { Anime } from "@/app/types/Anime";
 import AnimeCard from "@/components/AnimeCard";
 import SearchAnime from "@/components/Search";
@@ -24,7 +24,7 @@ async function AnimeResults({ searchParams }: AnimePageProps) {
     return <AnimeDefaultPage />;
   }
 
-  const animes = await getAnime({ search, genre, year, status });
+  const animes = await getAnimeBySearch({ search, genre, year, status });
 
   return (
     <div className="flex flex-wrap justify-center items-stretch gap-10 mx-0 md:mx-20">
