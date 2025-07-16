@@ -4,7 +4,7 @@ import {
   getUpcomingSeason,
 } from "@/app/api/dataAnime";
 import AnimeCard from "./AnimeCard";
-import type { Anime, TopAnime } from "@/app/types/Anime";
+import type { Anime } from "@/app/types/Anime";
 import Link from "next/link";
 import TopAnimeCard from "@/components/TopAnimeCard";
 
@@ -60,7 +60,7 @@ export default async function AnimeDefaultPage() {
           </Link>
         </div>
         <div className="flex flex-col justify-center flex-wrap gap-2 mx-2 md:mx-20">
-          {topAnime.map((anime: TopAnime, index: number) => {
+          {topAnime.map((anime: Anime, index: number) => {
             return <TopAnimeCard key={index} {...anime} />;
           })}
         </div>
