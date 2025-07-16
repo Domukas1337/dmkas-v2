@@ -17,12 +17,12 @@ export default function AnimeDetails({
   score,
 }: Anime) {
   return (
-    <div className="bg-gray-800 rounded-lg overflow-hidden w-screen flex flex-col md:flex-row mx-2">
+    <div className="rounded-lg overflow-hidden flex flex-col md:flex-row">
       <Image
         src={images.webp.large_image_url}
         alt={title}
-        width={500}
-        height={500}
+        width={403}
+        height={400}
         className="rounded-lg m-2 border-2 object-cover border-gray-400"
       />
 
@@ -87,7 +87,7 @@ export default function AnimeDetails({
         <p className="text-gray-300 text-sm">{synopsis}</p>
         <div className="flex flex-row gap-2">
           <Link
-            href={trailer?.url}
+            href={trailer?.url || ""}
             target="_blank"
             className={` text-white text-xs font-medium px-3 py-1 rounded-full ${
               !trailer?.url
