@@ -32,7 +32,7 @@ export default function Navbar() {
                 </Link>
                 <div className="flex flex-row">
                   <Link
-                    href="/search/anime/top100"
+                    href="/search/anime/top"
                     className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-150 mx-2"
                   >
                     <span className="text-xs font-black text-gray-500 hover:text-white transition-colors">

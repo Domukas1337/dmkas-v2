@@ -35,7 +35,7 @@ export default async function AnimeDefaultPage() {
         <div className="flex flex-row justify-between items-center mx-14 md:mx-2 mt-4 mb-2">
           <h1 className="text-xl font-black uppercase">Top 100</h1>
           <Link
-            href="/search/anime/upcoming"
+            href="/search/anime/top"
             className="text-gray-400 hover:text-blue-400 transition-colors duration-150"
           >
             See more
