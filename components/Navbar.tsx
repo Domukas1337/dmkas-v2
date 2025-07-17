@@ -30,24 +30,6 @@ export default function Navbar() {
                   <FaPlay />
                   <span className="text-base font-black">Anime</span>
                 </Link>
-                <div className="flex flex-row">
-                  <Link
-                    href="/search/anime/top"
-                    className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-150 mx-2"
-                  >
-                    <span className="text-xs font-black text-gray-500 hover:text-white transition-colors">
-                      Top 100
-                    </span>
-                  </Link>
-                  <Link
-                    href="/search/anime/upcoming"
-                    className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-150 mx-2"
-                  >
-                    <span className="text-xs font-black text-gray-500 hover:text-white transition-colors">
-                      Upcoming
-                    </span>
-                  </Link>
-                </div>
               </div>
 
               <div className="flex flex-col">
@@ -58,24 +40,6 @@ export default function Navbar() {
                   <FaBook />
                   <span className="text-base font-black">Manga</span>
                 </Link>
-                <div className="flex flex-row">
-                  <Link
-                    href="about:blank"
-                    className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-150 mx-2"
-                  >
-                    <span className="text-xs font-black text-gray-500 hover:text-white transition-colors">
-                      Top 100
-                    </span>
-                  </Link>
-                  <Link
-                    href="about:blank"
-                    className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-150 mx-2"
-                  >
-                    <span className="text-xs font-black text-gray-500 hover:text-white transition-colors">
-                      Upcoming
-                    </span>
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

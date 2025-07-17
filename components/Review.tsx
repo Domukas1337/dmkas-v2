@@ -22,13 +22,13 @@ export default function Review({ review }: { review: AnimeReviews }) {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <div className="text-white px-4 py-2 mt-4">
+    <div className="text-white px-4 py-2 mt-4 review-fadein">
       <Link
         href={review.user.url}
         className="flex flex-row items-center w-fit hover:bg-cyan-300/50 rounded-md px-2 py-2 transition-all"
       >
         <Image
-          src={review.user.images.jpg.image_url}
+          src={review.user.images.webp.image_url}
           alt={review.user.username}
           width={50}
           height={50}

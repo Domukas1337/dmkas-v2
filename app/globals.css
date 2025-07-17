@@ -35,6 +35,20 @@ body {
   }
 }
 
+@keyframes review-fadein {
+  from {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.review-fadein {
+  animation: review-fadein 0.5s ease-in-out;
+}
+
 .fade-in-from-top {
   animation: fadein-from-top 1s ease-in-out;
 }

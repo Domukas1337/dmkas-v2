@@ -6,7 +6,7 @@ interface AnimeReviews {
     url: string;
     username: string;
     images: {
-      jpg: {
+      webp: {
         image_url: string;
       };
     };

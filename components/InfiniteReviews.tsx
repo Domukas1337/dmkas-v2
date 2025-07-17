@@ -56,7 +56,7 @@ export default function InfiniteReviews({
 
   if (reviews.length === 0) {
     return (
-      <div>
+      <div className="review-fadein">
         <h3 className="text-lg font-bold text-center">No reviews</h3>
         <p className="text-sm text-center">
           Reviews might appear after some time when the anime is fully released
