@@ -9,8 +9,8 @@ import Link from "next/link";
 import TopAnimeCard from "@/components/TopAnimeCard";
 
 export default async function AnimeDefaultPage() {
-  const currentSeason = await getCurrentSeason({ limit: 10 });
-  const upcomingSeason = await getUpcomingSeason({ limit: 10 });
+  const currentSeason = await getCurrentSeason();
+  const upcomingSeason = await getUpcomingSeason();
   const topAnime = await getTopAnime({ limit: 9 });
 
   return (
@@ -18,35 +18,17 @@ export default async function AnimeDefaultPage() {
       <div className="flex flex-col">
         <div className="flex flex-row justify-between items-center mx-14 md:mx-2 mb-4">
           <h1 className="text-xl font-black uppercase">Current season</h1>
-          <Link
-            href="/search/anime/current"
-            className="text-gray-400 hover:text-blue-400 transition-colors duration-150"
-          >
-            See more
-          </Link>
         </div>
         <div className="flex flex-row justify-center flex-wrap gap-4">
           {currentSeason.map((anime: Anime, index: number) => {
-            if (index >= 5) {
-              return;
-            }
             return <AnimeCard key={index} {...anime} />;
           })}
         </div>
         <div className="flex flex-row justify-between items-center mx-14 md:mx-2 mt-4 mb-4">
           <h1 className="text-xl font-black uppercase">Upcoming season</h1>
-          <Link
-            href="/search/anime/upcoming"
-            className="text-gray-400 hover:text-blue-400 transition-colors duration-150"
-          >
-            See more
-          </Link>
         </div>
         <div className="flex flex-row justify-center flex-wrap gap-4">
           {upcomingSeason.map((anime: Anime, index: number) => {
-            if (index >= 5) {
-              return;
-            }
             return <AnimeCard key={index} {...anime} />;
           })}
         </div>

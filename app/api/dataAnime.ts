@@ -39,10 +39,10 @@ export async function getAnimeBySearch({
   }
 }
 
-export async function getCurrentSeason({ limit }: { limit?: number }) {
-  const res = await fetch(
-    `https://api.jikan.moe/v4/seasons/now?limit=${limit}`
-  );
+export async function getCurrentSeason() {
+  const res = await fetch(`https://api.jikan.moe/v4/seasons/now`, {
+    cache: "default",
+  });
   const data = await res.json();
 
   const uniqueData = data.data.filter(
@@ -53,15 +53,12 @@ export async function getCurrentSeason({ limit }: { limit?: number }) {
   return uniqueData;
 }
 
-export async function getUpcomingSeason({ limit }: { limit?: number }) {
+export async function getUpcomingSeason() {
   // artificial limit (need to remove)
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  const res = await fetch(
-    `https://api.jikan.moe/v4/seasons/upcoming?limit=${limit}`,
-    {
-      cache: "default",
-    }
-  );
+  const res = await fetch(`https://api.jikan.moe/v4/seasons/upcoming`, {
+    cache: "default",
+  });
 
   const data = await res.json();
 

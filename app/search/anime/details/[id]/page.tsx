@@ -1,13 +1,13 @@
 import { getAnimeDetails } from "@/app/api/dataAnime";
 import { getReviews } from "@/app/api/dataReviews";
-import { AnimeReviews } from "@/app/types/AnimeReviews";
 import AnimeDetails from "@/components/AnimeDetails";
-import Review from "@/components/Review";
+import InfiniteReviews from "@/components/InfiniteReviews";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const { id } = await params;
+  const data = await getAnimeDetails({ id: Number(id) });
   return {
-    title: `${id}`,
+    title: `${data.title}`,
   };
 }
 
@@ -17,21 +17,19 @@ export default async function AnimeDetailPage({
   params: { id: string };
 }) {
   const { id } = await params;
-
   const data = await getAnimeDetails({ id: Number(id) });
-  const reviews = await getReviews(Number(id));
+  // Get initial reviews (page 1)
+  const initialReviews = await getReviews(Number(id), 1);
 
   return (
-    <div className="flex flex-row flex-wrap mx-2 md:mx-10 mt-24 mb-2 bg-gray-800 rounded-lg">
+    <div className="flex flex-col flex-wrap mx-2 md:mx-10 mt-24 mb-2 bg-gray-800 rounded-lg">
       <AnimeDetails {...data} />
-      <div className="flex flex-col">
-        {!reviews.data ? (
-          <p>No reviews</p>
-        ) : (
-          reviews.data.map((review: AnimeReviews, index: number) => (
-            <Review key={index} review={review} />
-          ))
-        )}
+      <div className="flex flex-col justify-center items-center mb-2">
+        <h1 className="text-3xl font-bold">Reviews</h1>
+        <InfiniteReviews
+          animeId={Number(id)}
+          initialReviews={initialReviews.data || []}
+        />
       </div>
     </div>
   );
