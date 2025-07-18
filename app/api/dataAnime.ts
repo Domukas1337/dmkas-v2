@@ -69,7 +69,7 @@ export async function getUpcomingSeason() {
 
   return uniqueData;
 }
-
+// TODO: create a new api call for top scrollable component
 export async function getTopAnime({
   limit,
   page,

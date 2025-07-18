@@ -11,7 +11,7 @@ import TopAnimeCard from "@/components/TopAnimeCard";
 export default async function AnimeDefaultPage() {
   const currentSeason = await getCurrentSeason();
   const upcomingSeason = await getUpcomingSeason();
-  const topAnime = await getTopAnime({ limit: 9 });
+  const topAnime = await getTopAnime({ limit: 10 });
 
   return (
     <div className="flex justify-center items-center">
