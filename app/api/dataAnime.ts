@@ -79,7 +79,7 @@ export async function getTopAnime({
 }) {
   if (page) {
     const res = await fetch(
-      `https://api.jikan.moe/v4/top/anime?limit=${limit}&page=${page}`,
+      `https://api.jikan.moe/v4/top/anime?limit=${limit}&page=${page}&type=tv`,
       {
         cache: "force-cache",
       }
@@ -89,14 +89,18 @@ export async function getTopAnime({
     return data.data;
   } else {
     const res = await fetch(
-      `https://api.jikan.moe/v4/top/anime?limit=${limit}`,
+      `https://api.jikan.moe/v4/top/anime?limit=${limit}&type=tv`,
       {
         cache: "force-cache",
       }
     );
     const data = await res.json();
+    const uniqueData = data.data.filter(
+      (item: Anime, index: number) =>
+        data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index
+    );
 
-    return data.data;
+    return uniqueData;
   }
 }
 
