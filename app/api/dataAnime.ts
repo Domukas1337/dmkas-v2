@@ -79,17 +79,23 @@ export async function getTopAnime({
 }) {
   if (page) {
     const res = await fetch(
-      `https://api.jikan.moe/v4/top/anime?limit=${limit}&page=${page}&type=tv`,
+      `https://api.jikan.moe/v4/top/anime?limit=${limit}&page=${page}`,
       {
         cache: "force-cache",
       }
     );
     const data = await res.json();
-
     return data.data;
+    // const uniqueData = data.data.filter(
+    //   (item: Anime, index: number) =>
+    //     data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index
+    // );
+    // const sortedData = uniqueData.sort((a: Anime, b: Anime) => a.rank - b.rank);
+
+    // return sortedData;
   } else {
     const res = await fetch(
-      `https://api.jikan.moe/v4/top/anime?limit=${limit}&type=tv`,
+      `https://api.jikan.moe/v4/top/anime?limit=${limit}`,
       {
         cache: "force-cache",
       }
@@ -100,7 +106,9 @@ export async function getTopAnime({
         data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index
     );
 
-    return uniqueData;
+    const sortedData = uniqueData.sort((a: Anime, b: Anime) => a.rank - b.rank);
+
+    return sortedData;
   }
 }
 
