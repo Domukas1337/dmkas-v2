@@ -79,7 +79,7 @@ export async function getTopAnime({
 }) {
   if (page) {
     const res = await fetch(
-      `https://api.jikan.moe/v4/top/anime?limit=${limit}&page=${page}`,
+      `https://api.jikan.moe/v4/top/anime?limit=${limit}&page=${page}&sort=rank&type=tv`,
       {
         cache: "force-cache",
       }
