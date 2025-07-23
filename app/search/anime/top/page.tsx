@@ -80,17 +80,6 @@ export default function TopAnime() {
   //   loadAnimes(page);
   // };
 
-  if (initialLoad && loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading top anime...</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen mt-24">
       <h1 className="text-3xl font-bold text-center mb-10">Top Anime</h1>
@@ -99,6 +88,11 @@ export default function TopAnime() {
           {animes.map((anime: Anime, index: number) => (
             <AnimeCard key={index} {...anime} />
           ))}
+        </div>
+      )}
+      {loading && initialLoad && (
+        <div className="flex justify-center py-4">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
         </div>
       )}
     </div>
