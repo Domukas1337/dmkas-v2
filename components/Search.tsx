@@ -108,14 +108,14 @@ export default function SearchAnime() {
       </div>
       <div className="flex gap-2">
         <button
-          className="flex flex-row items-center bg-blue-600 rounded-2xl p-2 px-4 self-end hover:py-3 transition-all duration-150 hover:cursor-pointer"
+          className="flex flex-row items-center bg-blue-600 rounded-2xl p-2 px-4 self-end hover:scale-105 transition-all duration-150 hover:cursor-pointer"
           onClick={handleSearch}
         >
           <CiSearch size={20} />
           Search
         </button>
         <button
-          className="bg-gray-700 rounded-2xl p-2 self-end px-4 hover:py-3 transition-all duration-150 hover:bg-white hover:text-black hover:cursor-pointer hidden lg:flex"
+          className="bg-gray-700 rounded-2xl p-2 self-end px-4 hover:scale-105 transition-all duration-150 hover:bg-white hover:text-black hover:cursor-pointer hidden lg:flex"
           onClick={handleClear}
         >
           Clear
@@ -221,14 +221,14 @@ export function SearchManga() {
       </div>
       <div className="flex gap-2">
         <button
-          className="flex flex-row items-center bg-red-600 rounded-2xl p-2 px-4 self-end hover:py-3 transition-all duration-150 hover:cursor-pointer"
+          className="flex flex-row items-center bg-red-600 rounded-2xl p-2 px-4 self-end hover:scale-105 transition-all duration-150 hover:cursor-pointer"
           onClick={handleSearch}
         >
           <CiSearch size={20} />
           Search
         </button>
         <button
-          className="bg-gray-700 rounded-2xl p-2 self-end px-4 hover:py-3 transition-all duration-150 hover:bg-white hover:text-black hover:cursor-pointer"
+          className="bg-gray-700 rounded-2xl p-2 self-end px-4 hover:scale-105 transition-all duration-150 hover:bg-white hover:text-black hover:cursor-pointer"
           onClick={handleClear}
         >
           Clear
