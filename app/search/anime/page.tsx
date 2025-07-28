@@ -20,7 +20,7 @@ async function AnimeResults({ searchParams }: AnimePageProps) {
   const year = params.year || "";
   const status = params.status || "";
 
-  if (!search) {
+  if (!search && !genre && !year && !status) {
     return <AnimeDefaultPage />;
   }
 
