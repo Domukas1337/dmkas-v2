@@ -10,7 +10,7 @@ export default function AnimeDetails({
   title,
   title_english,
   title_japanese,
-  //   mal_id,
+  mal_id,
   synopsis,
   trailer,
   status,
@@ -96,6 +96,13 @@ export default function AnimeDetails({
             }`}
           >
             Watch trailer
+          </Link>
+          <Link
+            href={`https://myanimelist.net/anime/${mal_id}`}
+            target="_blank"
+            className=" text-white text-xs font-medium px-3 py-1 rounded-full bg-blue-400 hover:bg-blue-500 transition-colors duration-200"
+          >
+            MAL
           </Link>
         </div>
       </div>
