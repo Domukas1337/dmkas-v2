@@ -1,10 +1,10 @@
-export default function Spinner() {
+export default function Spinner({ color }: { color?: string }) {
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-gray-700/50 backdrop-blur-md">
       <div role="status">
         <svg
           aria-hidden="true"
-          className="w-24 h-24 text-blue-200 animate-spin fill-blue-500"
+          className={`w-24 h-24 text-blue-200 animate-spin ${color}`}
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
