@@ -108,14 +108,14 @@ export default function SearchAnime() {
       </div>
       <div className="flex gap-2">
         <button
-          className="flex flex-row items-center accent-background text-white rounded-2xl p-2 px-4 self-end hover:scale-105 transition-all duration-150 hover:cursor-pointer"
+          className="flex flex-row items-center accent-background text-white font-semibold rounded-2xl p-2 px-4 self-end hover:scale-105 transition-all duration-150 hover:cursor-pointer"
           onClick={handleSearch}
         >
           <CiSearch size={20} />
           Search
         </button>
         <button
-          className="bg-white text-black rounded-2xl p-2 self-end px-4 hover:scale-105 transition-all duration-150 hover:bg-red-700 hover:text-white hover:cursor-pointer hidden lg:flex"
+          className="bg-white text-black rounded-2xl p-2 self-end px-4 hover:scale-105 font-semibold transition-all duration-150 hover:bg-red-700 hover:text-white hover:cursor-pointer hidden lg:flex"
           onClick={handleClear}
         >
           Clear
