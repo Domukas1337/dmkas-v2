@@ -1,8 +1,40 @@
 @import "tailwindcss";
 
+:root {
+  --primary-color: #a3dab6;
+  --secondary-color: #2e7267;
+  --accent-color: #4eb2b8;
+  --text-color: #ebf7ee;
+  --background: #0a190f;
+}
+
 body {
-  background-color: #232e52;
-  color: white;
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+.primary-text {
+  color: var(--primary-color);
+}
+
+.primary-background {
+  background-color: var(--primary-color);
+}
+
+.secondary-text {
+  color: var(--secondary-color);
+}
+
+.secondary-background {
+  background-color: var(--secondary-color);
+}
+
+.accent-text {
+  color: var(--accent-color);
+}
+
+.accent-background {
+  background-color: var(--accent-color);
 }
 
 .barlow {

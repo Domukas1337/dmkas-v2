@@ -19,7 +19,7 @@ export default function AnimeCard({
       href={`/search/anime/details/${mal_id}`}
       className="hover:scale-105 transition-all duration-200"
     >
-      <div className="relative group bg-gray-800 rounded-lg overflow-hidden w-[280px] h-full flex flex-col">
+      <div className="relative group bg-gray-400/30 rounded-lg overflow-hidden w-[280px] h-full flex flex-col">
         <div className="relative h-[200px] overflow-hidden">
           <Image
             src={images.webp.large_image_url}
@@ -78,7 +78,7 @@ export default function AnimeCard({
             {genres.slice(0, 3).map((genre, index) => (
               <span
                 key={index}
-                className="bg-blue-400 text-white text-xs font-medium px-3 py-1 rounded-full"
+                className="accent-background text-white text-xs font-medium px-3 py-1 rounded-full"
               >
                 {genre.name}
               </span>
