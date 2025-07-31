@@ -228,7 +228,7 @@ export function SearchManga() {
           Search
         </button>
         <button
-          className="secondary-background rounded-2xl p-2 self-end px-4 hover:scale-105 transition-all duration-150 hover:bg-white hover:text-black hover:cursor-pointer"
+          className="bg-white text-black rounded-2xl p-2 self-end px-4 hover:scale-105 font-semibold transition-all duration-150 hover:bg-red-700 hover:text-white hover:cursor-pointer hidden lg:flex"
           onClick={handleClear}
         >
           Clear
