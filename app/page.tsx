@@ -21,7 +21,7 @@ export default function Home() {
         <Image src="/homepage.png" alt="homepage" width={400} height={500} />
         <Link
           href="https://x.com/morinohitos"
-          className="text-center hover:text-blue-400 transition-colors"
+          className="text-center hover:text-teal-300 transition-colors"
         >
           @morinohitos
         </Link>

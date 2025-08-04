@@ -155,7 +155,7 @@ export function SearchManga() {
     setSelectedGenre("");
     setSelectedFormat("");
     setSelectedStatus("");
-    router.push("/search/anime");
+    router.push("/search/manga");
     window.location.reload();
   }
 

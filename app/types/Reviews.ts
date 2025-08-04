@@ -1,4 +1,4 @@
-interface AnimeReviews {
+interface Reviews {
   date: string;
   review: string;
   score: number;
@@ -13,4 +13,4 @@ interface AnimeReviews {
   };
 }
 
-export type { AnimeReviews };
+export type { Reviews };

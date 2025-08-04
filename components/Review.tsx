@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { useState } from "react";
 import Image from "next/image";
-import { AnimeReviews } from "@/app/types/AnimeReviews";
+import { AnimeReviews } from "@/app/types/Reviews";
 
 const scoreClasses = [
   { score: 1, className: "text-red-500" },
