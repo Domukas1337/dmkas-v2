@@ -1,5 +1,5 @@
 import Spinner from "@/components/Spinner";
 
 export default function Loading() {
-  return <Spinner color="fill-teal-400" />;
+  return <Spinner color="fill-primary" />;
 }

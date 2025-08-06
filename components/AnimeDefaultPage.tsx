@@ -38,7 +38,7 @@ export default async function AnimeDefaultPage() {
           <h1 className="text-xl font-black uppercase">Top 100</h1>
           <Link
             href="/search/anime/top"
-            className="text-gray-400 hover:text-blue-400 transition-colors duration-150"
+            className="text-text hover:text-accent transition-colors duration-150"
           >
             See more
           </Link>

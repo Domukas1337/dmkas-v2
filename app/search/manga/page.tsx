@@ -26,7 +26,7 @@ async function MangaResults({ searchParams }: MangaPageProps) {
       <div>
         <h1 className="text-2xl font-bold">
           Search your favorite manga. For example:{" "}
-          <span className="accent-text">
+          <span className="text-accent">
             The Fragrant Flower blooms with dignity.
           </span>
         </h1>

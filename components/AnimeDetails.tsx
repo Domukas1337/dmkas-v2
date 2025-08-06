@@ -77,7 +77,7 @@ export default function AnimeDetails({
           {genres.slice(0, 3).map((genre, index) => (
             <span
               key={index}
-              className="accent-background text-white text-xs font-medium px-3 py-1 rounded-full"
+              className="bg-accent text-white text-xs font-medium px-3 py-1 rounded-full"
             >
               {genre.name}
             </span>
@@ -92,7 +92,7 @@ export default function AnimeDetails({
             className={` text-white text-xs font-medium px-3 py-1 rounded-full ${
               !trailer?.url
                 ? "cursor-not-allowed bg-gray-500"
-                : "bg-teal-500 hover:bg-teal-700 transition-colors duration-200"
+                : "bg-secondary hover:bg-secondary/80 transition-colors duration-200"
             }`}
           >
             Watch trailer
@@ -100,7 +100,7 @@ export default function AnimeDetails({
           <Link
             href={`https://myanimelist.net/anime/${mal_id}`}
             target="_blank"
-            className=" text-white text-xs font-medium px-3 py-1 rounded-full bg-teal-500 hover:bg-teal-700 transition-colors duration-200"
+            className=" text-white text-xs font-medium px-3 py-1 rounded-full bg-secondary hover:bg-secondary/80 transition-colors duration-200"
           >
             MAL
           </Link>

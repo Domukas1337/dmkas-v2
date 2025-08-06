@@ -3,7 +3,8 @@ import Link from "next/link";
 
 import { useState } from "react";
 import Image from "next/image";
-import { AnimeReviews } from "@/app/types/Reviews";
+
+import { Reviews } from "@/app/types/Reviews";
 
 const scoreClasses = [
   { score: 1, className: "text-red-500" },
@@ -18,14 +19,14 @@ const scoreClasses = [
   { score: 10, className: "text-green-400" },
 ];
 
-export default function Review({ review }: { review: AnimeReviews }) {
+export default function Review({ review }: { review: Reviews }) {
   const [showMore, setShowMore] = useState(false);
 
   return (
     <div className="text-white px-4 py-2 mt-4 review-fadein">
       <Link
         href={review.user.url}
-        className="flex flex-row items-center w-fit hover:bg-cyan-300/50 rounded-md px-2 py-2 transition-all"
+        className="flex flex-row items-center w-fit hover:bg-primary/50 rounded-md px-2 py-2 transition-all"
       >
         <Image
           src={review.user.images.webp.image_url}
@@ -44,7 +45,7 @@ export default function Review({ review }: { review: AnimeReviews }) {
       {review.review.length > 350 && !showMore ? (
         <div className="flex flex-row justify-start">
           <p
-            className="dark:text-white text-lg cursor-pointer hover:text-cyan-300 transition-colors duration-150"
+            className="dark:text-white text-lg cursor-pointer hover:text-accent transition-colors duration-150"
             onClick={() => setShowMore(true)}
           >
             Show more
@@ -52,7 +53,7 @@ export default function Review({ review }: { review: AnimeReviews }) {
         </div>
       ) : (
         <p
-          className="dark:text-white text-lg cursor-pointer hover:text-cyan-300 transition-colors duration-150"
+          className="dark:text-white text-lg cursor-pointer hover:text-accent transition-colors duration-150"
           onClick={() => setShowMore(false)}
         >
           Show less

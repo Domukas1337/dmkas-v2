@@ -78,7 +78,7 @@ export default function AnimeCard({
             {genres.slice(0, 3).map((genre, index) => (
               <span
                 key={index}
-                className="accent-background text-white text-xs font-medium px-3 py-1 rounded-full"
+                className="bg-accent text-white text-xs font-medium px-3 py-1 rounded-full"
               >
                 {genre.name}
               </span>

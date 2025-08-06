@@ -9,7 +9,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center p-4 mx-0 md:mx-24">
         <Link
           href="/"
-          className="text-2xl hover:text-teal-300 transition-colors duration-150 barlow font-black"
+          className="text-2xl hover:text-accent transition-colors duration-150 barlow font-black"
         >
           DMKAS
         </Link>
@@ -17,7 +17,7 @@ export default function Navbar() {
           <div className="relative group">
             <Link
               href="/search/anime"
-              className="cursor-pointer hover:text-teal-300 font-semibold transition-colors duration-150"
+              className="cursor-pointer hover:text-accent font-semibold transition-colors duration-150"
             >
               Search
             </Link>
@@ -45,7 +45,7 @@ export default function Navbar() {
           </div>
           <Link
             href="https://github.com/domukas1337"
-            className="hover:cursor-pointer font-semibold hover:text-teal-300 transition-colors duration-300"
+            className="hover:cursor-pointer font-semibold hover:text-accent transition-colors duration-300"
           >
             Github
           </Link>

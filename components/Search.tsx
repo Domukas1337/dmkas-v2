@@ -50,7 +50,7 @@ export default function SearchAnime() {
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Search</h1>
         <input
-          className="secondary-background rounded-lg p-2"
+          className="bg-secondary rounded-lg p-2"
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -65,7 +65,7 @@ export default function SearchAnime() {
       <div className="hidden flex-col lg:flex">
         <h1 className="font-black mb-2">Genre</h1>
         <select
-          className="secondary-background rounded-lg p-2.5 pr-10"
+          className="bg-secondary rounded-lg p-2.5 pr-10"
           value={selectedGenre}
           onChange={(e) => setSelectedGenre(e.target.value)}
         >
@@ -80,7 +80,7 @@ export default function SearchAnime() {
       <div className="hidden flex-col lg:flex">
         <h1 className="font-black mb-2">Year</h1>
         <select
-          className="secondary-background rounded-lg p-2.5 pr-10"
+          className="bg-secondary rounded-lg p-2.5 pr-10"
           value={selectedYear}
           onChange={(e) => setSelectedYear(e.target.value)}
         >
@@ -96,7 +96,7 @@ export default function SearchAnime() {
       <div className="hidden flex-col lg:flex">
         <h1 className="font-black mb-2">Status</h1>
         <select
-          className="secondary-background rounded-lg p-2.5 pr-10"
+          className="bg-secondary rounded-lg p-2.5 pr-10"
           value={selectedStatus}
           onChange={(e) => setSelectedStatus(e.target.value)}
         >
@@ -108,7 +108,7 @@ export default function SearchAnime() {
       </div>
       <div className="flex gap-2">
         <button
-          className="flex flex-row items-center accent-background text-white font-semibold rounded-2xl p-2 px-4 self-end hover:scale-105 transition-all duration-150 hover:cursor-pointer"
+          className="flex flex-row items-center bg-accent text-white font-semibold rounded-2xl p-2 px-4 self-end hover:scale-105 transition-all duration-150 hover:cursor-pointer"
           onClick={handleSearch}
         >
           <CiSearch size={20} />
@@ -164,7 +164,7 @@ export function SearchManga() {
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Search</h1>
         <input
-          className="secondary-background rounded-lg p-2"
+          className="bg-secondary rounded-lg p-2"
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -179,7 +179,7 @@ export function SearchManga() {
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Genre</h1>
         <select
-          className="secondary-background rounded-lg p-2.5 pr-10"
+          className="bg-secondary rounded-lg p-2.5 pr-10"
           value={selectedGenre}
           onChange={(e) => setSelectedGenre(e.target.value)}
         >
@@ -194,7 +194,7 @@ export function SearchManga() {
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Format</h1>
         <select
-          className="secondary-background rounded-lg p-2.5 pr-10"
+          className="bg-secondary rounded-lg p-2.5 pr-10"
           value={selectedFormat}
           onChange={(e) => setSelectedFormat(e.target.value)}
         >
@@ -207,7 +207,7 @@ export function SearchManga() {
       <div>
         <h1 className="font-black mb-2">Status</h1>
         <select
-          className="secondary-background rounded-lg p-2.5 pr-10"
+          className="bg-secondary rounded-lg p-2.5 pr-10"
           value={selectedStatus}
           onChange={(e) => setSelectedStatus(e.target.value)}
         >
