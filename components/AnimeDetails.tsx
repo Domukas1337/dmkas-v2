@@ -44,9 +44,9 @@ export default function AnimeDetails({
           <div className="flex items-center gap-2 bg-black/50 rounded-full px-2 py-1">
             <div
               className={`w-5 h-5 rounded-full ${
-                score > 8
+                score >= 8
                   ? "bg-green-500"
-                  : score <= 8 && score > 5
+                  : score < 8 && score > 5
                   ? "bg-yellow-500"
                   : score <= 5 && score > 3
                   ? "bg-orange-500"
@@ -56,9 +56,9 @@ export default function AnimeDetails({
               } flex items-center justify-center`}
             >
               <span className="text-xs">
-                {score > 8
+                {score >= 8
                   ? "A"
-                  : score <= 8 && score > 5
+                  : score < 8 && score > 5
                   ? "B"
                   : score <= 5 && score > 3
                   ? "C"
