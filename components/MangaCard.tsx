@@ -33,7 +33,7 @@ export default function MangaCard({
             <div
               className={`w-5 h-5 rounded-full ${
                 score > 8
-                  ? "bg-green-500"
+                  ? "bg-green-600"
                   : score <= 8 && score > 5
                   ? "bg-yellow-500"
                   : score <= 5 && score > 3
@@ -43,7 +43,7 @@ export default function MangaCard({
                   : "bg-red-500"
               } flex items-center justify-center`}
             >
-              <span className="text-xs">
+              <span className="text-xs font-bold">
                 {score > 8
                   ? "A"
                   : score <= 8 && score > 5
