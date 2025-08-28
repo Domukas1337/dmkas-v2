@@ -49,7 +49,7 @@ export default function TopAnimeCard({
               {genres.map((genre, index) => (
                 <h1
                   key={index}
-                  className="text-xs accent-background rounded-md px-2 py-1"
+                  className="text-xs bg-accent rounded-md px-2 py-1"
                 >
                   {genre.name}
                 </h1>

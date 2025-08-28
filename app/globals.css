@@ -61,6 +61,16 @@ body {
     transform: translateY(0);
   }
 }
+
+@keyframes loading-gradient {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 .review-fadein {
   animation: review-fadein 0.5s ease-in-out;
 }
@@ -71,4 +81,8 @@ body {
 
 .fade-in-from-left {
   animation: fadein-from-left 1s ease-in-out;
+}
+
+.animate-loading-gradient {
+  animation: loading-gradient 2s infinite;
 }
