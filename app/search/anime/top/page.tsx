@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import type { Anime } from "@/app/types/Anime";
 import { getTopAnime } from "@/app/api/dataAnime";
 import AnimeCard from "@/components/AnimeCard";
+import LoadingCard from "@/components/LoadingCard";
 
 export default function TopAnime() {
   const [animes, setAnimes] = useState<Anime[]>([]);
@@ -91,8 +92,10 @@ export default function TopAnime() {
         </div>
       )}
       {loading && initialLoad && (
-        <div className="flex justify-center py-4">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+        <div className="flex flex-wrap justify-center gap-2 py-4">
+          {Array.from({ length: 10 }).map((_, index) => (
+            <LoadingCard key={index} />
+          ))}
         </div>
       )}
     </div>
