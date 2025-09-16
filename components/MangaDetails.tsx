@@ -12,6 +12,8 @@ export default function MangaDetails({
   synopsis,
   status,
   score,
+  chapters,
+  volumes,
 }: Manga) {
   return (
     <div className="rounded-lg overflow-hidden flex flex-col md:flex-row">
@@ -31,8 +33,14 @@ export default function MangaDetails({
           <h3 className="text-gray-300 text-sm">{title_japanese}</h3>
         </div>
         <div className="flex gap-2">
-          <div className="bg-black/50 rounded-full px-2 py-1">
-            <p className="text-white text-sm">{status}</p>
+          <div className="flex gap-2 bg-black/50 rounded-full px-2 py-1">
+            <p className="text-white text-sm font-bold">{status}</p>
+            <span className="text-white font-bold text-sm">
+              ch: {chapters || "N/A"}
+            </span>
+            <span className="text-white font-bold text-sm">
+              vol: {volumes || "N/A"}
+            </span>
           </div>
           <div className="flex items-center gap-2 bg-black/50 rounded-full px-2 py-1">
             <div
