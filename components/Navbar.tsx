@@ -5,7 +5,7 @@ import { FaBook } from "react-icons/fa";
 
 export default function Navbar() {
   return (
-    <div className="fixed top-0 left-0 right-0 backdrop-blur-lg z-50">
+    <div className="fixed top-0 left-0 right-0 backdrop-blur-sm z-50">
       <div className="flex justify-between items-center p-4 mx-0 md:mx-24">
         <Link
           href="/"
@@ -21,7 +21,7 @@ export default function Navbar() {
             >
               Search
             </Link>
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 px-3 py-2 bg-black/70 text-white text-sm rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 whitespace-nowrap">
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 px-3 py-2 bg-background/90 text-white text-sm rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 whitespace-nowrap">
               <div className="flex flex-col">
                 <Link
                   href="/search/anime"

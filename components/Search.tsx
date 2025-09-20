@@ -5,6 +5,7 @@ import { useState } from "react";
 import { genres } from "@/app/data/genres";
 
 import { CiSearch } from "react-icons/ci";
+import { MdClear } from "react-icons/md";
 
 export default function SearchAnime() {
   const searchParams = useSearchParams();
@@ -62,7 +63,7 @@ export default function SearchAnime() {
           }}
         />
       </div>
-      <div className="hidden flex-col lg:flex">
+      <div className="hidden flex-col md:flex">
         <h1 className="font-black mb-2">Genre</h1>
         <select
           className="bg-secondary rounded-lg p-2.5 pr-10"
@@ -93,7 +94,7 @@ export default function SearchAnime() {
           ))}
         </select>
       </div>
-      <div className="hidden flex-col lg:flex">
+      <div className="hidden flex-col xl:flex">
         <h1 className="font-black mb-2">Status</h1>
         <select
           className="bg-secondary rounded-lg p-2.5 pr-10"
@@ -108,16 +109,17 @@ export default function SearchAnime() {
       </div>
       <div className="flex gap-2">
         <button
-          className="flex flex-row items-center bg-accent text-white font-semibold rounded-2xl p-2 px-4 self-end hover:scale-105 transition-all duration-150 hover:cursor-pointer"
+          className="flex flex-row items-center bg-accent hover:bg-accent/80 text-white font-semibold rounded-2xl p-2 px-4 self-end transition-all duration-150 hover:cursor-pointer"
           onClick={handleSearch}
         >
           <CiSearch size={20} />
           Search
         </button>
         <button
-          className="bg-white text-black rounded-2xl p-2 self-end px-4 hover:scale-105 font-semibold transition-all duration-150 hover:bg-red-700 hover:text-white hover:cursor-pointer hidden lg:flex"
+          className="hidden lg:flex flex-row items-center bg-white text-black rounded-2xl p-2 self-end px-4 font-semibold transition-colors duration-150 hover:bg-red-700 hover:text-white hover:cursor-pointer"
           onClick={handleClear}
         >
+          <MdClear size={20} />
           Clear
         </button>
       </div>
@@ -176,7 +178,7 @@ export function SearchManga() {
           }}
         />
       </div>
-      <div className="flex flex-col">
+      <div className="md:flex flex-col hidden">
         <h1 className="font-black mb-2">Genre</h1>
         <select
           className="bg-secondary rounded-lg p-2.5 pr-10"
@@ -191,7 +193,7 @@ export function SearchManga() {
           ))}
         </select>
       </div>
-      <div className="flex flex-col">
+      <div className="lg:flex flex-col hidden">
         <h1 className="font-black mb-2">Format</h1>
         <select
           className="bg-secondary rounded-lg p-2.5 pr-10"
@@ -204,7 +206,7 @@ export function SearchManga() {
           <option value="oneshot">One-shot</option>
         </select>
       </div>
-      <div>
+      <div className="xl:flex flex-col hidden">
         <h1 className="font-black mb-2">Status</h1>
         <select
           className="bg-secondary rounded-lg p-2.5 pr-10"
@@ -221,16 +223,17 @@ export function SearchManga() {
       </div>
       <div className="flex gap-2">
         <button
-          className="flex flex-row items-center bg-red-600 rounded-2xl p-2 px-4 self-end hover:scale-105 transition-all duration-150 hover:cursor-pointer"
+          className="flex flex-row items-center bg-red-600 hover:bg-red-700 rounded-2xl p-2 px-4 self-end transition-colors duration-150 hover:cursor-pointer"
           onClick={handleSearch}
         >
           <CiSearch size={20} />
           Search
         </button>
         <button
-          className="bg-white text-black rounded-2xl p-2 self-end px-4 hover:scale-105 font-semibold transition-all duration-150 hover:bg-red-700 hover:text-white hover:cursor-pointer hidden lg:flex"
+          className="hidden lg:flex flex-row items-center bg-white text-black rounded-2xl p-2 self-end px-4 font-semibold transition-colors duration-150 hover:bg-red-700 hover:text-white hover:cursor-pointer"
           onClick={handleClear}
         >
+          <MdClear size={20} />
           Clear
         </button>
       </div>

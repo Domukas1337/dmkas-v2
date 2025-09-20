@@ -17,9 +17,9 @@ export default function AnimeCard({
   return (
     <Link
       href={`/search/anime/details/${mal_id}`}
-      className="hover:scale-105 transition-all duration-200"
+      className="hover:scale-105 transition-all duration-200 "
     >
-      <div className="relative group bg-gray-400/30 rounded-lg overflow-hidden w-[280px] h-full flex flex-col">
+      <div className="relative group bg-gray-400/30 rounded-lg overflow-hidden sm:w-[280px] w-[200px] h-full flex flex-col">
         <div className="relative h-[200px] overflow-hidden">
           <Image
             src={images.webp.large_image_url}
@@ -28,8 +28,9 @@ export default function AnimeCard({
             className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
           />
           <div className="absolute top-2 left-2 bg-black/50 rounded-full px-2 py-1">
-            <p className="text-white text-sm">{status}</p>
+            <p className="text-white text-sm sm:flex hidden">{status}</p>
           </div>
+
           <div className="absolute top-2 right-2 flex items-center gap-2 bg-black/50 rounded-full px-2 py-1">
             <div
               className={`w-5 h-5 rounded-full ${
