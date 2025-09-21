@@ -26,7 +26,7 @@ export default async function AnimeDefaultPage() {
             return <AnimeCard key={index} {...anime} />;
           })}
         </div>
-        <div className="flex flex-row justify-center items-center mx-14 md:mx-2 mt-4 mb-4">
+        <div className="flex flex-row justify-center items-center mx-14 md:mx-2 mt-12 mb-4">
           <h1 className="text-xl font-black uppercase">Upcoming season</h1>
         </div>
         <div className="flex flex-row justify-center flex-wrap gap-4">
