@@ -4,14 +4,14 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center h-screen mx-10 lg:mx-0 gap-10 mt-24 sm:mt-0">
-      <div className="flex flex-col fade-in-from-left">
-        <h1 className="text-4xl">
+      <div className="flex flex-col fade-in-from-left text-center sm:text-left">
+        <h1 className="text-4xl font-bold">
           Welcome to <span className="text-accent">DMKAS</span>
         </h1>
-        <p className="text-base sm:text-2xl font-semibold ">
+        <p className="text-lg sm:text-2xl font-semibold ">
           A website for searcing manga and anime
         </p>
-        <p className="text-sm sm:text-base">
+        <p className="text-base sm:text-lg">
           Try searching for your favorite manga or anime by hovering or clicking
           the <span className="font-bold">search </span>
           button

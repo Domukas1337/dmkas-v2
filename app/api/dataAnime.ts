@@ -86,10 +86,13 @@ export async function getTopAnime({
     );
     const data = await res.json();
     // return data.data;
+
+    // This had to be added because api gave repeated animes
     const uniqueData = data.data.filter(
       (item: Anime, index: number) =>
         data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index
     );
+    // Sort from highest to lowest
     const sortedData = uniqueData.sort((a: Anime, b: Anime) => a.rank - b.rank);
 
     return sortedData;
