@@ -55,7 +55,9 @@ export async function getCurrentSeason() {
 
 export async function getUpcomingSeason() {
   // artificial limit (need to remove)
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  if (process.env.NODE_ENV === "development") {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+  }
   const res = await fetch(`https://api.jikan.moe/v4/seasons/upcoming`, {
     cache: "default",
   });

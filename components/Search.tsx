@@ -47,7 +47,7 @@ export default function SearchAnime() {
   }
 
   return (
-    <div className="flex flex-row gap-10 mb-10">
+    <div className="flex flex-row gap-2 lg:gap-10 mb-10">
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Search</h1>
         <input
@@ -116,11 +116,11 @@ export default function SearchAnime() {
           Search
         </button>
         <button
-          className="hidden lg:flex flex-row items-center bg-white text-black rounded-2xl p-2 self-end px-4 font-semibold transition-colors duration-150 hover:bg-red-700 hover:text-white hover:cursor-pointer"
+          className="flex flex-row items-center bg-white text-black rounded-2xl py-2.5 lg:py-2 self-end px-4 font-semibold transition-colors duration-150 hover:bg-red-700 hover:text-white hover:cursor-pointer"
           onClick={handleClear}
         >
           <MdClear size={20} />
-          Clear
+          <span className="hidden lg:flex">Clear</span>
         </button>
       </div>
     </div>
@@ -162,7 +162,7 @@ export function SearchManga() {
   }
 
   return (
-    <div className="flex flex-row gap-10 mb-10">
+    <div className="flex flex-row gap-2 lg:gap-10 mb-10">
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Search</h1>
         <input
@@ -230,11 +230,11 @@ export function SearchManga() {
           Search
         </button>
         <button
-          className="hidden lg:flex flex-row items-center bg-white text-black rounded-2xl p-2 self-end px-4 font-semibold transition-colors duration-150 hover:bg-red-700 hover:text-white hover:cursor-pointer"
+          className="flex flex-row items-center bg-white text-black rounded-2xl py-2.5 lg:py-2 self-end px-4 font-semibold transition-colors duration-150 hover:bg-red-700 hover:text-white hover:cursor-pointer"
           onClick={handleClear}
         >
           <MdClear size={20} />
-          Clear
+          <span className="hidden lg:flex">Clear</span>
         </button>
       </div>
     </div>
