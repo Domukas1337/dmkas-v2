@@ -1,10 +1,20 @@
 "use client";
-
 import { useState, useEffect, useCallback } from "react";
 import type { Anime } from "@/app/types/Anime";
 import { getTopAnime } from "@/app/api/dataAnime";
 import AnimeCard from "@/components/AnimeCard";
 import LoadingCard from "@/components/LoadingCard";
+
+const removeDuplicates = (animes: Anime[]): Anime[] => {
+  const seen = new Set<number>();
+  return animes.filter((anime) => {
+    if (seen.has(anime.mal_id)) {
+      return false;
+    }
+    seen.add(anime.mal_id);
+    return true;
+  });
+};
 
 export default function TopAnime() {
   const [animes, setAnimes] = useState<Anime[]>([]);
@@ -16,23 +26,21 @@ export default function TopAnime() {
   const loadAnimes = useCallback(
     async (pageNum: number, append: boolean = true) => {
       if (loading) return;
-
       setLoading(true);
-
       try {
         const response = await getTopAnime({
           limit: 25,
           page: pageNum,
         });
-
         if (response && response.length > 0) {
+          let newAnimes = response;
           if (append && pageNum > 1) {
-            setAnimes((prev) => [...prev, ...response]);
+            newAnimes = removeDuplicates([...animes, ...response]);
           } else {
-            setAnimes(response);
+            newAnimes = removeDuplicates(response);
           }
+          setAnimes(newAnimes);
           setPage(pageNum + 1);
-
           // Check if we've reached the end
           if (response.length < 25) {
             setHasMore(false);
@@ -47,7 +55,7 @@ export default function TopAnime() {
         setInitialLoad(false);
       }
     },
-    [loading]
+    [loading, animes]
   );
 
   // Load initial data
@@ -67,27 +75,17 @@ export default function TopAnime() {
         loadAnimes(page);
       }
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [loadAnimes, page, loading, hasMore]);
-
-  // const handleLoadMore = () => {
-  //   loadAnimes(page);
-  // };
-
-  // const handleRetry = () => {
-  //   setError(null);
-  //   loadAnimes(page);
-  // };
 
   return (
     <div className="min-h-screen mt-24">
       <h1 className="text-3xl font-bold text-center mb-10">Top Anime</h1>
       {animes.length > 0 && (
         <div className="flex flex-wrap justify-center gap-4">
-          {animes.map((anime: Anime, index: number) => (
-            <AnimeCard key={index} {...anime} />
+          {animes.map((anime: Anime) => (
+            <AnimeCard key={anime.mal_id} {...anime} />
           ))}
         </div>
       )}

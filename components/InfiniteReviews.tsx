@@ -21,7 +21,6 @@ function InfiniteReviewsAnime({ id, initialReviews }: InfiniteReviewsProps) {
 
     setLoading(true);
     try {
-      // Modify your getReviews function to accept page parameter
       const newReviews = await getAnimeReviews(id, page);
 
       if (newReviews.data && newReviews.data.length > 0) {
