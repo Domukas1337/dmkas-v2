@@ -1,17 +1,17 @@
-import { getAnimeBySearch } from "@/app/api/dataAnime";
 import {
+  getAnimeBySearch,
   getCurrentSeason,
   getTopAnime,
   getUpcomingSeason,
-} from "@/app/api/dataAnime";
+} from "@/api/dataAnime";
 
-import type { Anime } from "@/app/types/Anime";
+import type { Anime } from "@/types/Anime";
 
 import Link from "next/link";
 
-import TopAnimeCard from "@/components/TopAnimeCard";
 import AnimeCard from "@/components/AnimeCard";
 import SearchAnime from "@/components/Search";
+import TopAnimeCard from "@/components/TopAnimeCard";
 
 interface AnimePageProps {
   searchParams: Promise<{

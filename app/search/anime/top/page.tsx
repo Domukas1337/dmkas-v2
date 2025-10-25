@@ -1,9 +1,9 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
-import type { Anime } from "@/app/types/Anime";
-import { getTopAnime } from "@/app/api/dataAnime";
+import { getTopAnime } from "@/api/dataAnime";
 import AnimeCard from "@/components/AnimeCard";
 import LoadingCard from "@/components/LoadingCard";
+import type { Anime } from "@/types/Anime";
+import { useCallback, useEffect, useState } from "react";
 
 const removeDuplicates = (animes: Anime[]): Anime[] => {
   const seen = new Set<number>();

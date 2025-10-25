@@ -1,4 +1,4 @@
-import { Manga } from "../types/Manga";
+import { Manga } from "../../types/Manga";
 
 export async function getMangaBySearch({
   search,

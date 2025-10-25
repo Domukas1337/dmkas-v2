@@ -1,8 +1,8 @@
 "use client";
 
+import { genres } from "@/data/genres";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { genres } from "@/app/data/genres";
 
 import { CiSearch } from "react-icons/ci";
 import { MdClear } from "react-icons/md";

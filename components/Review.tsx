@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 
-import { Reviews } from "@/app/types/Reviews";
+import { Reviews } from "@/types/Reviews";
 
 const scoreClasses = [
   { score: 1, className: "text-red-500" },

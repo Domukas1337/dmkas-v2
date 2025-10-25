@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { getAnimeReviews, getMangaReviews } from "@/app/api/dataReviews";
-import { Reviews } from "@/app/types/Reviews";
+import { getAnimeReviews, getMangaReviews } from "@/api/dataReviews";
 import Review from "@/components/Review";
+import { Reviews } from "@/types/Reviews";
+import { useCallback, useEffect, useState } from "react";
 
 interface InfiniteReviewsProps {
   id: number;

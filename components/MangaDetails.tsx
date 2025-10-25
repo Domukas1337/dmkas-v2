@@ -1,4 +1,4 @@
-import type { Manga } from "@/app/types/Manga";
+import type { Manga } from "@/types/Manga";
 import Image from "next/image";
 import Link from "next/link";
 

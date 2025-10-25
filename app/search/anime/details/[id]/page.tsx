@@ -1,5 +1,5 @@
-import { getAnimeDetails } from "@/app/api/dataAnime";
-import { getAnimeReviews } from "@/app/api/dataReviews";
+import { getAnimeDetails } from "@/api/dataAnime";
+import { getAnimeReviews } from "@/api/dataReviews";
 import AnimeDetails from "@/components/AnimeDetails";
 import { InfiniteReviewsAnime } from "@/components/InfiniteReviews";
 

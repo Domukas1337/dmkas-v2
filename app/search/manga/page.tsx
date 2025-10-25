@@ -1,7 +1,7 @@
-import { getMangaBySearch } from "@/app/api/dataManga";
-import { Manga } from "@/app/types/Manga";
+import { getMangaBySearch } from "@/api/dataManga";
 import MangaCard from "@/components/MangaCard";
 import { SearchManga } from "@/components/Search";
+import { Manga } from "@/types/Manga";
 
 interface MangaPageProps {
   searchParams: Promise<{

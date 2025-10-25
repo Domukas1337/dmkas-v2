@@ -1,4 +1,4 @@
-import type { Anime } from "../types/Anime";
+import type { Anime } from "../../types/Anime";
 
 export async function getAnimeBySearch({
   search,
