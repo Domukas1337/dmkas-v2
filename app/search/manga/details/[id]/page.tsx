@@ -1,5 +1,5 @@
-import { getMangaDetails } from "@/app/api/dataManga";
-import { getMangaReviews } from "@/app/api/dataReviews";
+import { getMangaDetails } from "@/api/dataManga";
+import { getMangaReviews } from "@/api/dataReviews";
 
 import { InfiniteReviewsManga } from "@/components/InfiniteReviews";
 import MangaDetails from "@/components/MangaDetails";
