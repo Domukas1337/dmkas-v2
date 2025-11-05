@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-import { FaPlay } from "react-icons/fa";
-import { FaBook } from "react-icons/fa";
+import { FaBook, FaPlay } from "react-icons/fa";
 
 export default function Navbar() {
   return (
@@ -21,7 +20,7 @@ export default function Navbar() {
             >
               Search
             </Link>
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 px-3 py-2 bg-background/90 text-white text-sm rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 whitespace-nowrap">
+            <div className="absolute top-full translate-x-[-28%] px-3 py-2 text-white text-sm rounded-md bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
               <div className="flex flex-col">
                 <Link
                   href="/search/anime"
