@@ -27,7 +27,6 @@ export async function AnimeDefaultPage() {
   const upcomingSeason = await getUpcomingSeason();
   const topAnime = await getTopAnime({
     limit: 15,
-    page: 1,
   });
 
   return (

@@ -77,25 +77,44 @@ export async function getTopAnime({
   limit?: number;
   page?: number;
 }) {
-  const res = await fetch(
-    `https://api.jikan.moe/v4/top/anime?limit=${limit}&page=${page}&sort=rank&type=tv`,
-    {
-      cache: "force-cache",
-      next: { revalidate: 3000 },
-    }
-  );
-  const data = await res.json();
-  // return data.data;
+  if (page) {
+    const res = await fetch(
+      `https://api.jikan.moe/v4/top/anime?limit=${limit}&page=${page}&sort=rank&type=tv`,
+      {
+        cache: "force-cache",
+        next: { revalidate: 3000 },
+      }
+    );
+    const data = await res.json();
+    // return data.data;
 
-  // This had to be added because api gave repeated animes
-  const uniqueData = data.data.filter(
-    (item: Anime, index: number) =>
-      data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index
-  );
-  // Sort from highest to lowest
-  const sortedData = uniqueData.sort((a: Anime, b: Anime) => a.rank - b.rank);
+    // This had to be added because api gave repeated animes
+    const uniqueData = data.data.filter(
+      (item: Anime, index: number) =>
+        data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index
+    );
+    // Sort from highest to lowest
+    const sortedData = uniqueData.sort((a: Anime, b: Anime) => a.rank - b.rank);
 
-  return sortedData;
+    return sortedData;
+  } else {
+    const res = await fetch(
+      `https://api.jikan.moe/v4/top/anime?limit=${limit}`,
+      {
+        cache: "force-cache",
+        next: { revalidate: 3000 },
+      }
+    );
+    const data = await res.json();
+    const uniqueData = data.data.filter(
+      (item: Anime, index: number) =>
+        data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index
+    );
+
+    const sortedData = uniqueData.sort((a: Anime, b: Anime) => a.rank - b.rank);
+
+    return sortedData;
+  }
 }
 
 export async function getAnimeDetails({ id }: { id: number }) {
