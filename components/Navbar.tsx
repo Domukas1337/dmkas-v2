@@ -20,7 +20,7 @@ export default function Navbar() {
             >
               Search
             </Link>
-            <div className="absolute top-full translate-x-[-28%] px-3 py-2 text-white text-sm rounded-md bg-background/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            <div className="absolute top-full translate-x-[-28%] px-3 py-2 text-white text-sm rounded-md bg-background/90 scale-0 group-hover:scale-100 transition-all duration-150 whitespace-nowrap">
               <div className="flex flex-col">
                 <Link
                   href="/search/anime"
