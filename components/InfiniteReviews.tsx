@@ -12,7 +12,7 @@ interface InfiniteReviewsProps {
 
 function InfiniteReviewsAnime({ id, initialReviews }: InfiniteReviewsProps) {
   const [reviews, setReviews] = useState<Reviews[]>(initialReviews);
-  const [page, setPage] = useState(2); // Start from page 2 since we have initial data
+  const [page, setPage] = useState(2);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
@@ -37,14 +37,14 @@ function InfiniteReviewsAnime({ id, initialReviews }: InfiniteReviewsProps) {
   }, [id, page, loading, hasMore]);
 
   useEffect(() => {
-    const handleScroll = () => {
+    function handleScroll() {
       if (
         window.innerHeight + document.documentElement.scrollTop >=
         document.documentElement.offsetHeight - 1000 // Load when 1000px from bottom
       ) {
         loadMoreReviews();
       }
-    };
+    }
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -93,7 +93,6 @@ function InfiniteReviewsManga({ id, initialReviews }: InfiniteReviewsProps) {
 
     setLoading(true);
     try {
-      // Modify your getReviews function to accept page parameter
       const newReviews = await getMangaReviews(id, page);
 
       if (newReviews.data && newReviews.data.length > 0) {
@@ -110,14 +109,14 @@ function InfiniteReviewsManga({ id, initialReviews }: InfiniteReviewsProps) {
   }, [id, page, loading, hasMore]);
 
   useEffect(() => {
-    const handleScroll = () => {
+    function handleScroll() {
       if (
         window.innerHeight + document.documentElement.scrollTop >=
         document.documentElement.offsetHeight - 1000 // Load when 1000px from bottom
       ) {
         loadMoreReviews();
       }
-    };
+    }
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

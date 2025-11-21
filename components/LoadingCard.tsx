@@ -19,7 +19,7 @@ export default function LoadingCard() {
             placegholder
           </span>
         </div>
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-gray-400 to-transparent animate-loading-gradient" />
+        <div className="absolute top-0 left-0 w-full h-full bg-linear-to-r from-transparent via-gray-400 to-transparent animate-loading-gradient" />
       </div>
     </div>
   );
