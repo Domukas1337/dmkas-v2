@@ -95,7 +95,7 @@ async function AnimeResults({ searchParams }: AnimePageProps) {
 
 export default async function Anime({ searchParams }: AnimePageProps) {
   return (
-    <div className="flex flex-col justify-center items-center mt-20 w-screen">
+    <div className="flex flex-col justify-center items-center mt-20">
       <SearchAnime />
       <AnimeResults searchParams={searchParams} />
     </div>

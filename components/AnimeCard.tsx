@@ -27,7 +27,7 @@ export default function AnimeCard({
             fill
             className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
           />
-          <div className="absolute top-2 left-2 bg-black/50 rounded-full px-2 py-1">
+          <div className="absolute top-2 left-2 sm:bg-black/50 bg-none rounded-full px-2 py-1">
             <p className="text-white text-sm sm:flex hidden">{status}</p>
           </div>
 

@@ -120,6 +120,7 @@ export async function getTopAnime({
 export async function getAnimeDetails({ id }: { id: number }) {
   const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`, {
     cache: "force-cache",
+    next: { revalidate: 3000 },
   });
   const data = await res.json();
   return data.data;
