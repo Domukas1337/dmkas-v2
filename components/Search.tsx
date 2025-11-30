@@ -38,12 +38,11 @@ export default function SearchAnime() {
   }
 
   function handleClear() {
+    router.push("/search/anime");
     setSearchQuery("");
     setSelectedGenre("");
     setSelectedYear("");
     setSelectedStatus("");
-    router.push("/search/anime");
-    window.location.reload();
   }
 
   return (
@@ -145,20 +144,19 @@ export function SearchManga() {
     const params = new URLSearchParams();
 
     params.set("q", searchQuery);
-    params.set("genre", selectedGenre);
-    params.set("format", selectedFormat);
-    params.set("status", selectedStatus);
+    if (selectedGenre) params.set("genre", selectedGenre);
+    if (selectedFormat) params.set("format", selectedFormat);
+    if (selectedStatus) params.set("status", selectedStatus);
 
     router.push(`/search/manga?${params.toString()}`);
   }
 
   function handleClear() {
+    router.push("/search/manga");
     setSearchQuery("");
     setSelectedGenre("");
     setSelectedFormat("");
     setSelectedStatus("");
-    router.push("/search/manga");
-    window.location.reload();
   }
 
   return (
