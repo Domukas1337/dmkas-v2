@@ -16,11 +16,11 @@ export default function Navbar() {
           <div className="relative group">
             <Link
               href="/search/anime"
-              className="cursor-pointer hover:text-accent font-semibold transition-colors duration-150"
+              className="cursor-pointer hover:text-accent font-semibold duration-150"
             >
               Search
             </Link>
-            <div className="absolute top-full translate-x-[-28%] px-3 py-2 text-white text-sm rounded-md bg-background/90 scale-0 group-hover:scale-100 transition-all duration-150 whitespace-nowrap">
+            <div className="absolute top-full -left-10 px-3 py-2 text-white bg-black text-sm rounded-md scale-0 group-hover:scale-100 transition-all duration-150 whitespace-nowrap">
               <div className="flex flex-col">
                 <Link
                   href="/search/anime"
@@ -30,7 +30,6 @@ export default function Navbar() {
                   <span className="text-base font-black">Anime</span>
                 </Link>
               </div>
-
               <div className="flex flex-col">
                 <Link
                   href="/search/manga"
