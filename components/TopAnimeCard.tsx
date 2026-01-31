@@ -16,16 +16,16 @@ export default function TopAnimeCard({
       href={`/search/anime/details/${mal_id}`}
       className=" hover:scale-105 transition-all duration-200"
     >
-      <div className="flex flex-row items-center m-2 gap-4 bg-gray-400/30 rounded-md p-2">
+      <div className="flex flex-row items-center m-2 gap-4 bg-zinc-900 border border-zinc-800 rounded-md p-2">
         <h1
           className={`text-xl font-black ml-2 ${
             rank === 1
               ? "text-yellow-300"
               : rank === 2
-              ? "text-gray-300"
-              : rank === 3
-              ? "text-amber-600"
-              : "text-white"
+                ? "text-gray-300"
+                : rank === 3
+                  ? "text-amber-600"
+                  : "text-white"
           }`}
         >
           {rank}#
@@ -49,7 +49,7 @@ export default function TopAnimeCard({
               {genres.map((genre, index) => (
                 <h1
                   key={index}
-                  className="text-xs bg-accent rounded-md px-2 py-1"
+                  className="text-xs bg-zinc-700 rounded-md px-2 py-1 font-medium"
                 >
                   {genre.name}
                 </h1>
@@ -57,30 +57,30 @@ export default function TopAnimeCard({
             </div>
           </div>
 
-          <div className="sm:flex flex-row justify-center items-center gap-2 bg-gray-400/30 rounded-xl p-2 w-[100px] hidden">
+          <div className="sm:flex flex-row justify-center items-center gap-2 bg-zinc-800 border border-zinc-700 rounded-xl p-2 w-[100px] hidden">
             <div
               className={`w-5 h-5 rounded-full ${
                 score > 8
                   ? "bg-green-500"
                   : score <= 8 && score > 5
-                  ? "bg-yellow-500"
-                  : score <= 5 && score > 3
-                  ? "bg-orange-500"
-                  : !score
-                  ? "bg-gray-500"
-                  : "bg-red-500"
+                    ? "bg-yellow-500"
+                    : score <= 5 && score > 3
+                      ? "bg-orange-500"
+                      : !score
+                        ? "bg-gray-500"
+                        : "bg-red-500"
               } flex items-center justify-center`}
             >
               <span className="text-xs">
                 {score > 8
                   ? "A"
                   : score <= 8 && score > 5
-                  ? "B"
-                  : score <= 5 && score > 3
-                  ? "C"
-                  : !score
-                  ? null
-                  : "D"}
+                    ? "B"
+                    : score <= 5 && score > 3
+                      ? "C"
+                      : !score
+                        ? null
+                        : "D"}
               </span>
             </div>
             <span className="text-white font-bold text-sm">

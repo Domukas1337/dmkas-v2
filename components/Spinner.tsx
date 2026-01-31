@@ -1,6 +1,6 @@
 export default function Spinner({ color }: { color?: string }) {
   return (
-    <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-gray-700/50 backdrop-blur-md">
+    <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center backdrop-blur-md">
       <div role="status">
         <svg
           aria-hidden="true"

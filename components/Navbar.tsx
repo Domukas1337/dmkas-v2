@@ -1,52 +1,43 @@
 import Link from "next/link";
 
 import { FaBook, FaPlay } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
+
+import Button from "./Button";
 
 export default function Navbar() {
   return (
-    <div className="fixed top-0 left-0 right-0 backdrop-blur-sm z-50">
-      <div className="flex justify-between items-center p-4 mx-0 md:mx-24">
-        <Link
-          href="/"
-          className="text-2xl hover:text-accent transition-colors duration-150 barlow font-black"
-        >
-          DMKAS
-        </Link>
-        <div className="flex gap-8">
-          <div className="relative group">
-            <Link
-              href="/search/anime"
-              className="cursor-pointer hover:text-accent font-semibold duration-150"
-            >
-              Search
-            </Link>
-            <div className="absolute top-full -left-10 px-3 py-2 text-white bg-black text-sm rounded-md scale-0 group-hover:scale-100 transition-all duration-150 whitespace-nowrap">
-              <div className="flex flex-col">
-                <Link
-                  href="/search/anime"
-                  className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-150 mx-2"
-                >
-                  <FaPlay />
-                  <span className="text-base font-black">Anime</span>
-                </Link>
-              </div>
-              <div className="flex flex-col">
-                <Link
-                  href="/search/manga"
-                  className="flex items-center gap-3.5 hover:cursor-pointer text-gray-400 hover:text-white transition-colors duration-300 mt-5 mx-2"
-                >
-                  <FaBook />
-                  <span className="text-base font-black">Manga</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <Link
-            href="https://github.com/domukas1337"
-            className="hover:cursor-pointer font-semibold hover:text-accent transition-colors duration-300"
-          >
-            Github
+    <div className="fixed top-0 left-0 right-0 backdrop-blur-md z-50 border-b bg-zinc-900/70 border-zinc-800">
+      <div className="flex justify-between items-center p-2 mx-0 md:mx-24">
+        <Button>
+          <Link href="/" className="text-2xl barlow font-black">
+            DMKAS
           </Link>
+        </Button>
+        <div className="flex gap-4">
+          <Button>
+            <Link href="/search/anime" className="flex items-center gap-2">
+              <FaPlay />
+              Anime
+            </Link>
+          </Button>
+
+          <Button>
+            <Link href="/search/manga" className="flex items-center gap-2">
+              <FaBook />
+              Manga
+            </Link>
+          </Button>
+
+          <Button>
+            <Link
+              href="https://github.com/domukas1337"
+              className="flex items-center gap-2"
+            >
+              <FaGithub />
+              Github
+            </Link>
+          </Button>
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ export default function MangaCard({
       href={`/search/manga/details/${mal_id}`}
       className="hover:scale-105 transition-all duration-200"
     >
-      <div className="relative group bg-gray-400/30 rounded-lg overflow-hidden w-[280px] h-full flex flex-col">
+      <div className="relative group bg-zinc-900 border border-zinc-700 rounded-lg overflow-hidden w-[280px] h-full flex flex-col">
         <div className="relative h-[200px] overflow-hidden">
           <Image
             src={images.webp.large_image_url}
@@ -35,24 +35,24 @@ export default function MangaCard({
                 score > 8
                   ? "bg-green-600"
                   : score <= 8 && score > 5
-                  ? "bg-yellow-500"
-                  : score <= 5 && score > 3
-                  ? "bg-orange-500"
-                  : !score
-                  ? "bg-gray-500"
-                  : "bg-red-500"
+                    ? "bg-yellow-500"
+                    : score <= 5 && score > 3
+                      ? "bg-orange-500"
+                      : !score
+                        ? "bg-gray-500"
+                        : "bg-red-500"
               } flex items-center justify-center`}
             >
               <span className="text-xs font-bold">
                 {score > 8
                   ? "A"
                   : score <= 8 && score > 5
-                  ? "B"
-                  : score <= 5 && score > 3
-                  ? "C"
-                  : !score
-                  ? null
-                  : "D"}
+                    ? "B"
+                    : score <= 5 && score > 3
+                      ? "C"
+                      : !score
+                        ? null
+                        : "D"}
               </span>
             </div>
             <span className="text-white font-bold text-sm">
@@ -73,7 +73,7 @@ export default function MangaCard({
             {genres.slice(0, 3).map((genre, index) => (
               <span
                 key={index}
-                className="bg-accent text-white text-xs font-medium px-3 py-1 rounded-full"
+                className="text-white bg-zinc-800 border border-zinc-700 text-xs font-medium px-3 py-1 rounded-md"
               >
                 {genre.name}
               </span>

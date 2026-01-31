@@ -1,6 +1,7 @@
 import type { Anime } from "@/types/Anime";
 import Image from "next/image";
 import Link from "next/link";
+import Button from "./Button";
 
 export default function AnimeDetails({
   images,
@@ -17,13 +18,13 @@ export default function AnimeDetails({
   score,
 }: Anime) {
   return (
-    <div className="rounded-lg overflow-hidden flex flex-col md:flex-row">
+    <div className="rounded-md overflow-hidden flex flex-col md:flex-row">
       <Image
         src={images.webp.large_image_url}
         alt={title}
         width={403}
         height={400}
-        className="rounded-lg m-2 border-2 object-cover border-gray-400"
+        className="rounded-lg m-2 border object-cover border-zinc-600"
       />
 
       <div className="p-4 space-y-3">
@@ -38,33 +39,33 @@ export default function AnimeDetails({
           </p>
         </div>
         <div className="flex gap-2">
-          <div className="bg-black/50 rounded-full px-2 py-1">
+          <div className="bg-zinc-800 border border-zinc-700 rounded-md px-2 py-1">
             <p className="text-white text-sm">{status}</p>
           </div>
-          <div className="flex items-center gap-2 bg-black/50 rounded-full px-2 py-1">
+          <div className="flex items-center gap-2 bg-zinc-800 border border-zinc-700 rounded-md px-2 py-1">
             <div
               className={`w-5 h-5 rounded-full ${
                 score >= 8
                   ? "bg-green-600"
                   : score < 8 && score > 5
-                  ? "bg-yellow-500"
-                  : score <= 5 && score > 3
-                  ? "bg-orange-500"
-                  : !score
-                  ? "bg-gray-500"
-                  : "bg-red-500"
+                    ? "bg-yellow-500"
+                    : score <= 5 && score > 3
+                      ? "bg-orange-500"
+                      : !score
+                        ? "bg-gray-500"
+                        : "bg-red-500"
               } flex items-center justify-center`}
             >
               <span className="text-xs font-bold">
                 {score >= 8
                   ? "A"
                   : score < 8 && score > 5
-                  ? "B"
-                  : score <= 5 && score > 3
-                  ? "C"
-                  : !score
-                  ? null
-                  : "D"}
+                    ? "B"
+                    : score <= 5 && score > 3
+                      ? "C"
+                      : !score
+                        ? null
+                        : "D"}
               </span>
             </div>
             <span className="text-white font-bold text-sm">
@@ -77,7 +78,7 @@ export default function AnimeDetails({
           {genres.slice(0, 3).map((genre, index) => (
             <span
               key={index}
-              className="bg-accent text-white text-xs font-medium px-3 py-1 rounded-full"
+              className="bg-zinc-800 border border-zinc-700 text-xs font-medium px-3 py-1 rounded-md"
             >
               {genre.name}
             </span>
@@ -86,24 +87,22 @@ export default function AnimeDetails({
 
         <p className="text-gray-300 text-sm">{synopsis}</p>
         <div className="flex flex-row gap-2">
-          <Link
-            href={trailer?.url || ""}
-            target="_blank"
-            className={` text-white text-xs font-medium px-3 py-1 rounded-full ${
-              !trailer?.url
-                ? "cursor-not-allowed bg-gray-500"
-                : "bg-secondary hover:bg-secondary/80 transition-colors duration-200"
-            }`}
-          >
-            Watch trailer
-          </Link>
-          <Link
-            href={`https://myanimelist.net/anime/${mal_id}`}
-            target="_blank"
-            className=" text-white text-xs font-medium px-3 py-1 rounded-full bg-secondary hover:bg-secondary/80 transition-colors duration-200"
-          >
-            MAL
-          </Link>
+          {!trailer?.url ? null : (
+            <Button>
+              <Link href={trailer?.url || ""} target="_blank">
+                Watch trailer
+              </Link>
+            </Button>
+          )}
+          <Button>
+            <Link
+              href={`https://myanimelist.net/anime/${mal_id}`}
+              target="_blank"
+              className=""
+            >
+              MAL
+            </Link>
+          </Button>
         </div>
       </div>
     </div>

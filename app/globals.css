@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
-:root {
+/* :root {
   --primary-color: #a3dab6;
   --secondary-color: #2e7267;
   --accent-color: #4eb2b8;
-  --text-color: #ebf7ee;
-  --background: #0a190f;
+  --text-color: #fff;
+  --background: #000;
 }
 
 @theme {
@@ -14,11 +14,11 @@
   --color-accent: var(--accent-color);
   --color-text: var(--text-color);
   --color-background: var(--background);
-}
+} */
 
 body {
-  background-color: var(--background);
-  color: var(--text-color);
+  background-color: #000;
+  color: #fff;
 }
 
 .barlow {
@@ -27,6 +27,10 @@ body {
 
 .geist-mono {
   font-family: var(--font-geist-mono);
+}
+
+.jetbrains-mono {
+  font-family: var(--font-jetbrains-mono);
 }
 
 @keyframes fadein-from-top {
@@ -73,14 +77,6 @@ body {
 
 .review-fadein {
   animation: review-fadein 0.5s ease-in-out;
-}
-
-.fade-in-from-top {
-  animation: fadein-from-top 1s ease-in-out;
-}
-
-.fade-in-from-left {
-  animation: fadein-from-left 1s ease-in-out;
 }
 
 .animate-loading-gradient {

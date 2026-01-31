@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Barlow } from "next/font/google";
-import "./globals.css";
+
+import { Barlow, Geist_Mono, JetBrains_Mono } from "next/font/google";
+
 import Navbar from "@/components/Navbar";
+import "./globals.css";
 
 const barlow = Barlow({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   variable: "--font-barlow",
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
@@ -29,7 +36,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${barlow.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${barlow.variable} ${geistMono.variable} ${jetBrainsMono.variable} antialiased`}
+      >
         <Navbar />
         {children}
       </body>
