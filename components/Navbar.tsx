@@ -14,20 +14,24 @@ export default function Navbar() {
             DMKAS
           </Link>
         </Button>
-        <div className="flex gap-4">
-          <Button>
-            <Link href="/search/anime" className="flex items-center gap-2">
-              <FaPlay />
-              Anime
-            </Link>
-          </Button>
+        <div className="flex gap-2 sm:gap-4">
+          <Link href="/search/anime">
+            <Button>
+              <span className="flex gap-2 items-center">
+                <FaPlay />
+                Anime
+              </span>
+            </Button>
+          </Link>
 
-          <Button>
-            <Link href="/search/manga" className="flex items-center gap-2">
-              <FaBook />
-              Manga
-            </Link>
-          </Button>
+          <Link href="/search/manga">
+            <Button>
+              <span className="flex gap-2 items-center">
+                <FaBook />
+                Manga
+              </span>
+            </Button>
+          </Link>
 
           <Button>
             <Link
@@ -35,7 +39,6 @@ export default function Navbar() {
               className="flex items-center gap-2"
             >
               <FaGithub />
-              Github
             </Link>
           </Button>
         </div>

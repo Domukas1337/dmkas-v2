@@ -89,7 +89,7 @@ export default function AnimeDetails({
         <div className="flex flex-row gap-2">
           {!trailer?.url ? null : (
             <Button>
-              <Link href={trailer?.url || ""} target="_blank">
+              <Link href={trailer?.url} target="_blank">
                 Watch trailer
               </Link>
             </Button>
