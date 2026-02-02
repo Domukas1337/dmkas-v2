@@ -50,7 +50,7 @@ export default function SearchAnime() {
       <div className="flex flex-col">
         <h1 className="font-black mb-2">Search</h1>
         <input
-          className="bg-zinc-800 border border-zinc-700 rounded-md p-2"
+          className="bg-zinc-800 border border-zinc-700 rounded-md p-2 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -65,7 +65,7 @@ export default function SearchAnime() {
       <div className="hidden flex-col md:flex">
         <h1 className="font-black mb-2">Genre</h1>
         <select
-          className="bg-zinc-800 border border-zinc-700 rounded-md p-2.5 pr-10"
+          className="bg-zinc-800 border border-zinc-700 rounded-md p-2.5 pr-10 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
           value={selectedGenre}
           onChange={(e) => setSelectedGenre(e.target.value)}
         >
@@ -80,7 +80,7 @@ export default function SearchAnime() {
       <div className="hidden flex-col lg:flex">
         <h1 className="font-black mb-2">Year</h1>
         <select
-          className="bg-zinc-800 border border-zinc-700 rounded-md p-2.5 pr-10"
+          className="bg-zinc-800 border border-zinc-700 rounded-md p-2.5 pr-10 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
           value={selectedYear}
           onChange={(e) => setSelectedYear(e.target.value)}
         >
@@ -96,7 +96,7 @@ export default function SearchAnime() {
       <div className="hidden flex-col xl:flex">
         <h1 className="font-black mb-2">Status</h1>
         <select
-          className="bg-zinc-800 border border-zinc-700 rounded-md p-2.5 pr-10"
+          className="bg-zinc-800 border border-zinc-700 rounded-md p-2.5 pr-10 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
           value={selectedStatus}
           onChange={(e) => setSelectedStatus(e.target.value)}
         >
@@ -108,14 +108,14 @@ export default function SearchAnime() {
       </div>
       <div className="flex gap-2">
         <button
-          className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer"
+          className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer focus:outline focus:outline-offset-2 focus:outline-zinc-600"
           onClick={handleSearch}
         >
           <CiSearch size={19} />
           Search
         </button>
         <button
-          className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-red-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer"
+          className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-red-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer focus:outline focus:outline-offset-2 focus:outline-zinc-600"
           onClick={handleClear}
         >
           <MdClear size={20} />

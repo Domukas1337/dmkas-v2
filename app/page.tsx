@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const astolfoAscii = `                                                                                              
                                        %%####%%%%%                                                 
                                 %+===+*#+-.     :=*##%%          %%%%                              
@@ -50,21 +52,35 @@ const astolfoAscii = `
 `;
 
 export default function Home() {
-  console.log(astolfoAscii);
-  console.log("Hello there!");
   return (
-    <div className="flex lg:flex-row flex-col justify-center items-center h-screen">
-      <div className="flex flex-col text-center">
+    <div className="flex lg:flex-row flex-col gap-12 justify-center items-center h-screen">
+      <div className="flex flex-col lg:text-left text-center">
         <h1 className="sm:text-4xl text-2xl jetbrains-mono">
           Welcome to <span className="text-accent font-black">DMKAS</span>
         </h1>
         <p className="sm:text-lg text-sm jetbrains-mono">
           Find your favorite manga and anime with ease.
         </p>
+        <p className="mt-2 jetbrains-mono text-zinc-500 sm:text-base text-xs">
+          Built using{" "}
+          <Link
+            href="https://nextjs.org/"
+            target="_blank"
+            className="font-bold underline hover:text-zinc-300"
+          >
+            Next.js
+          </Link>{" "}
+          and{" "}
+          <Link
+            href="https://jikan.moe/"
+            target="_blank"
+            className="font-bold underline hover:text-zinc-300"
+          >
+            Jikan API
+          </Link>
+        </p>
       </div>
-      <pre className="lg:text-[8px] text-[5px] tracking-[1px]">
-        {astolfoAscii}
-      </pre>
+      <pre className="text-[5px] tracking-[1px]">{astolfoAscii}</pre>
     </div>
   );
 }

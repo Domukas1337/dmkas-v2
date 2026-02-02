@@ -7,9 +7,8 @@ import {
 
 import type { Anime } from "@/types/Anime";
 
-import Link from "next/link";
-
 import AnimeCard from "@/components/AnimeCard";
+import Button from "@/components/Button";
 import SearchAnime from "@/components/Search";
 import TopAnimeCard from "@/components/TopAnimeCard";
 
@@ -50,12 +49,9 @@ export async function AnimeDefaultPage() {
         </div>
         <div className="flex flex-row justify-between items-center mx-14 md:mx-2 mt-4 mb-2">
           <h1 className="text-2xl font-black uppercase">Top 100</h1>
-          <Link
-            href="/search/anime/top"
-            className="text-text hover:text-accent transition-colors duration-150"
-          >
+          <Button href="/search/anime/top" isLink>
             See more
-          </Link>
+          </Button>
         </div>
         <div className="flex flex-col justify-center flex-wrap gap-2 mx-2 md:mx-20">
           {topAnime.map((anime: Anime, index: number) => {

@@ -16,7 +16,7 @@ export default function MangaCard({
   return (
     <Link
       href={`/search/manga/details/${mal_id}`}
-      className="hover:scale-105 transition-all duration-200"
+      className="hover:scale-105 transition-transform duration-200 rounded-lg focus:scale-105 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
     >
       <div className="relative group bg-zinc-900 border border-zinc-700 rounded-lg overflow-hidden w-[280px] h-full flex flex-col">
         <div className="relative h-[200px] overflow-hidden">
@@ -24,7 +24,7 @@ export default function MangaCard({
             src={images.webp.large_image_url}
             alt="anime"
             fill
-            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+            className="object-cover"
           />
           <div className="absolute top-2 left-2 bg-black/50 rounded-full px-2 py-1">
             <p className="text-white text-sm">{status}</p>

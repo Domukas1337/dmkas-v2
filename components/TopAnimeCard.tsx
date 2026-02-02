@@ -14,9 +14,9 @@ export default function TopAnimeCard({
   return (
     <Link
       href={`/search/anime/details/${mal_id}`}
-      className=" hover:scale-105 transition-all duration-200"
+      className="hover:scale-105 transition-transform duration-200 rounded-lg focus:scale-105 focus:outline focus:outline-zinc-600"
     >
-      <div className="flex flex-row items-center m-2 gap-4 bg-zinc-900 border border-zinc-800 rounded-md p-2">
+      <div className="flex flex-row items-center gap-4 bg-zinc-900 border border-zinc-800 rounded-md p-2">
         <h1
           className={`text-xl font-black ml-2 ${
             rank === 1
