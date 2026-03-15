@@ -2,10 +2,14 @@
 
 import { genres } from "@/data/genres";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 import { CiSearch } from "react-icons/ci";
 import { MdClear } from "react-icons/md";
+
+function Loading() {
+  return <div>Loading...</div>;
+}
 
 export default function SearchAnime() {
   const searchParams = useSearchParams();
@@ -46,83 +50,85 @@ export default function SearchAnime() {
   }
 
   return (
-    <div className="flex flex-row gap-2 lg:gap-10 mb-10">
-      <div className="flex flex-col">
-        <h1 className="font-black mb-2">Search</h1>
-        <input
-          className="bg-zinc-800 border border-zinc-700 rounded-md p-2 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search..."
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              handleSearch();
-            }
-          }}
-        />
+    <Suspense fallback={<Loading />}>
+      <div className="flex flex-row gap-2 lg:gap-10 mb-10">
+        <div className="flex flex-col">
+          <h1 className="font-black mb-2">Search</h1>
+          <input
+            className="bg-zinc-800 border border-zinc-700 rounded-md p-2 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search..."
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
+          />
+        </div>
+        <div className="hidden flex-col md:flex">
+          <h1 className="font-black mb-2">Genre</h1>
+          <select
+            className="bg-zinc-800 border border-zinc-700 rounded-md p-2.5 pr-10 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
+            value={selectedGenre}
+            onChange={(e) => setSelectedGenre(e.target.value)}
+          >
+            <option value="">Any</option>
+            {genres.data.map((genre) => (
+              <option key={genre.mal_id} value={genre.mal_id}>
+                {genre.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="hidden flex-col lg:flex">
+          <h1 className="font-black mb-2">Year</h1>
+          <select
+            className="bg-zinc-800 border border-zinc-700 rounded-md p-2.5 pr-10 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
+            value={selectedYear}
+            onChange={(e) => setSelectedYear(e.target.value)}
+          >
+            <option value="">Any</option>
+            <option value={currentYear + 1}>{currentYear + 1}</option>
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="hidden flex-col xl:flex">
+          <h1 className="font-black mb-2">Status</h1>
+          <select
+            className="bg-zinc-800 border border-zinc-700 rounded-md p-2.5 pr-10 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
+            value={selectedStatus}
+            onChange={(e) => setSelectedStatus(e.target.value)}
+          >
+            <option value="">Any</option>
+            <option value="Airing">Airing</option>
+            <option value="Complete">Complete</option>
+            <option value="Upcoming">Upcoming</option>
+          </select>
+        </div>
+        <div className="flex gap-2">
+          <button
+            className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer focus:outline focus:outline-offset-2 focus:outline-zinc-600"
+            onClick={handleSearch}
+          >
+            <CiSearch size={19} />
+            Search
+          </button>
+          <button
+            className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-red-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer focus:outline focus:outline-offset-2 focus:outline-zinc-600"
+            onClick={handleClear}
+          >
+            <MdClear size={20} />
+            <span className="hidden lg:flex">Clear</span>
+          </button>
+        </div>
       </div>
-      <div className="hidden flex-col md:flex">
-        <h1 className="font-black mb-2">Genre</h1>
-        <select
-          className="bg-zinc-800 border border-zinc-700 rounded-md p-2.5 pr-10 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
-          value={selectedGenre}
-          onChange={(e) => setSelectedGenre(e.target.value)}
-        >
-          <option value="">Any</option>
-          {genres.data.map((genre) => (
-            <option key={genre.mal_id} value={genre.mal_id}>
-              {genre.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="hidden flex-col lg:flex">
-        <h1 className="font-black mb-2">Year</h1>
-        <select
-          className="bg-zinc-800 border border-zinc-700 rounded-md p-2.5 pr-10 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
-          value={selectedYear}
-          onChange={(e) => setSelectedYear(e.target.value)}
-        >
-          <option value="">Any</option>
-          <option value={currentYear + 1}>{currentYear + 1}</option>
-          {years.map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="hidden flex-col xl:flex">
-        <h1 className="font-black mb-2">Status</h1>
-        <select
-          className="bg-zinc-800 border border-zinc-700 rounded-md p-2.5 pr-10 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
-          value={selectedStatus}
-          onChange={(e) => setSelectedStatus(e.target.value)}
-        >
-          <option value="">Any</option>
-          <option value="Airing">Airing</option>
-          <option value="Complete">Complete</option>
-          <option value="Upcoming">Upcoming</option>
-        </select>
-      </div>
-      <div className="flex gap-2">
-        <button
-          className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer focus:outline focus:outline-offset-2 focus:outline-zinc-600"
-          onClick={handleSearch}
-        >
-          <CiSearch size={19} />
-          Search
-        </button>
-        <button
-          className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-red-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer focus:outline focus:outline-offset-2 focus:outline-zinc-600"
-          onClick={handleClear}
-        >
-          <MdClear size={20} />
-          <span className="hidden lg:flex">Clear</span>
-        </button>
-      </div>
-    </div>
+    </Suspense>
   );
 }
 
@@ -160,81 +166,83 @@ export function SearchManga() {
   }
 
   return (
-    <div className="flex flex-row gap-2 lg:gap-10 mb-10">
-      <div className="flex flex-col">
-        <h1 className="font-black mb-2">Search</h1>
-        <input
-          className="bg-zinc-800 border border-zinc-700 rounded-lg p-2"
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search..."
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              handleSearch();
-            }
-          }}
-        />
+    <Suspense fallback={<Loading />}>
+      <div className="flex flex-row gap-2 lg:gap-10 mb-10">
+        <div className="flex flex-col">
+          <h1 className="font-black mb-2">Search</h1>
+          <input
+            className="bg-zinc-800 border border-zinc-700 rounded-lg p-2"
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search..."
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
+          />
+        </div>
+        <div className="md:flex flex-col hidden">
+          <h1 className="font-black mb-2">Genre</h1>
+          <select
+            className="bg-zinc-800 border border-zinc-700 rounded-lg p-2.5 pr-10"
+            value={selectedGenre}
+            onChange={(e) => setSelectedGenre(e.target.value)}
+          >
+            <option value="">Any</option>
+            {genres.data.map((genre) => (
+              <option key={genre.mal_id} value={genre.mal_id}>
+                {genre.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="lg:flex flex-col hidden">
+          <h1 className="font-black mb-2">Format</h1>
+          <select
+            className="bg-zinc-800 border border-zinc-700 rounded-lg p-2.5 pr-10"
+            value={selectedFormat}
+            onChange={(e) => setSelectedFormat(e.target.value)}
+          >
+            <option value="">Any</option>
+            <option value="lightnovel">Light Novel</option>
+            <option value="manga">Manga</option>
+            <option value="oneshot">One-shot</option>
+          </select>
+        </div>
+        <div className="xl:flex flex-col hidden">
+          <h1 className="font-black mb-2">Status</h1>
+          <select
+            className="bg-zinc-800 border border-zinc-700 rounded-lg p-2.5 pr-10"
+            value={selectedStatus}
+            onChange={(e) => setSelectedStatus(e.target.value)}
+          >
+            <option value="">Any</option>
+            <option value="Releasing">Releasing</option>
+            <option value="Finished">Finished</option>
+            <option value="NotYetReleased">Not Yet Released</option>
+            <option value="Hiatus">Hiatus</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+        <div className="flex gap-2">
+          <button
+            className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer"
+            onClick={handleSearch}
+          >
+            <CiSearch size={20} />
+            Search
+          </button>
+          <button
+            className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-red-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer"
+            onClick={handleClear}
+          >
+            <MdClear size={20} />
+            <span className="hidden lg:flex">Clear</span>
+          </button>
+        </div>
       </div>
-      <div className="md:flex flex-col hidden">
-        <h1 className="font-black mb-2">Genre</h1>
-        <select
-          className="bg-zinc-800 border border-zinc-700 rounded-lg p-2.5 pr-10"
-          value={selectedGenre}
-          onChange={(e) => setSelectedGenre(e.target.value)}
-        >
-          <option value="">Any</option>
-          {genres.data.map((genre) => (
-            <option key={genre.mal_id} value={genre.mal_id}>
-              {genre.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="lg:flex flex-col hidden">
-        <h1 className="font-black mb-2">Format</h1>
-        <select
-          className="bg-zinc-800 border border-zinc-700 rounded-lg p-2.5 pr-10"
-          value={selectedFormat}
-          onChange={(e) => setSelectedFormat(e.target.value)}
-        >
-          <option value="">Any</option>
-          <option value="lightnovel">Light Novel</option>
-          <option value="manga">Manga</option>
-          <option value="oneshot">One-shot</option>
-        </select>
-      </div>
-      <div className="xl:flex flex-col hidden">
-        <h1 className="font-black mb-2">Status</h1>
-        <select
-          className="bg-zinc-800 border border-zinc-700 rounded-lg p-2.5 pr-10"
-          value={selectedStatus}
-          onChange={(e) => setSelectedStatus(e.target.value)}
-        >
-          <option value="">Any</option>
-          <option value="Releasing">Releasing</option>
-          <option value="Finished">Finished</option>
-          <option value="NotYetReleased">Not Yet Released</option>
-          <option value="Hiatus">Hiatus</option>
-          <option value="Cancelled">Cancelled</option>
-        </select>
-      </div>
-      <div className="flex gap-2">
-        <button
-          className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer"
-          onClick={handleSearch}
-        >
-          <CiSearch size={20} />
-          Search
-        </button>
-        <button
-          className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-red-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer"
-          onClick={handleClear}
-        >
-          <MdClear size={20} />
-          <span className="hidden lg:flex">Clear</span>
-        </button>
-      </div>
-    </div>
+    </Suspense>
   );
 }

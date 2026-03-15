@@ -40,7 +40,7 @@ export default function TopAnime() {
             newAnimes = removeDuplicates(response);
           }
           setAnimes(newAnimes);
-          setPage(pageNum + 1);
+          setPage((pageNum) => pageNum + 1);
           // Check if we've reached the end
           if (response.length < 25) {
             setHasMore(false);
@@ -55,7 +55,7 @@ export default function TopAnime() {
         setInitialLoad(false);
       }
     },
-    [loading, animes]
+    [loading, animes],
   );
 
   // Load initial data

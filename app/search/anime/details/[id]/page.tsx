@@ -17,9 +17,10 @@ export default async function AnimeDetailPage({
   params: { id: string };
 }) {
   const { id } = await params;
-  const data = await getAnimeDetails({ id: Number(id) });
-  // Get initial reviews (page 1)
-  const initialReviews = await getAnimeReviews(Number(id), 1);
+  const [data, initialReviews] = await Promise.all([
+    getAnimeDetails({ id: Number(params.id) }),
+    getAnimeReviews(Number(params.id), 1),
+  ]);
 
   return (
     <div className="flex flex-col flex-wrap mx-2 md:mx-10 mt-24 mb-2 bg-zinc-900/50 border border-zinc-700 rounded-md">
