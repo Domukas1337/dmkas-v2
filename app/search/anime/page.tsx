@@ -22,11 +22,11 @@ interface AnimePageProps {
 }
 
 export async function AnimeDefaultPage() {
-  const currentSeason = await getCurrentSeason();
-  const upcomingSeason = await getUpcomingSeason();
-  const topAnime = await getTopAnime({
-    limit: 15,
-  });
+  const [currentSeason, upcomingSeason, topAnime] = await Promise.all([
+    getCurrentSeason(),
+    getUpcomingSeason(),
+    getTopAnime({ limit: 15 }),
+  ]);
 
   return (
     <div className="flex justify-center items-center">
