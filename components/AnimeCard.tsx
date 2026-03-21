@@ -25,7 +25,7 @@ export default function AnimeCard({
             src={images.webp.large_image_url}
             alt="anime"
             fill
-            className="object-cover"
+            className="w-auto h-auto object-cover"
           />
           <div className="absolute top-2 left-2 sm:bg-black/50 bg-none rounded-full px-2 py-1">
             <p className="text-white text-sm sm:flex hidden">{status}</p>

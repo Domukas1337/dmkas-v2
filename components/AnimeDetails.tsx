@@ -75,7 +75,7 @@ export default function AnimeDetails({
         </div>
 
         <div className="flex flex-wrap gap-2">
-          {genres.slice(0, 3).map((genre, index) => (
+          {genres.slice(0, 5).map((genre, index) => (
             <span
               key={index}
               className="bg-zinc-800 border border-zinc-700 text-xs font-medium px-3 py-1 rounded-md"
