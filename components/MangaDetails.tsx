@@ -1,6 +1,7 @@
 import type { Manga } from "@/types/Manga";
 import Image from "next/image";
 import Link from "next/link";
+import Button from "./Button";
 
 export default function MangaDetails({
   images,
@@ -88,15 +89,15 @@ export default function MangaDetails({
         </div>
 
         <p className="text-gray-300 text-sm">{synopsis}</p>
-        <div className="flex flex-row gap-2">
+        <Button>
           <Link
             href={`https://myanimelist.net/anime/${mal_id}`}
             target="_blank"
-            className=" text-white text-xs font-medium px-3 py-1 rounded-full bg-secondary hover:bg-secondary/80 transition-colors duration-200"
+            className=""
           >
             MAL
           </Link>
-        </div>
+        </Button>
       </div>
     </div>
   );
