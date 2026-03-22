@@ -18,8 +18,8 @@ export default function MangaCard({
       href={`/search/manga/details/${mal_id}`}
       className="hover:scale-105 transition-transform duration-200 rounded-lg focus:scale-105 focus:outline focus:outline-offset-2 focus:outline-zinc-600"
     >
-      <div className="relative group bg-zinc-900 border border-zinc-700 rounded-lg overflow-hidden w-[280px] h-full flex flex-col">
-        <div className="relative h-[200px] overflow-hidden">
+      <div className="relative group bg-zinc-900 border border-zinc-700 rounded-lg overflow-hidden sm:w-70 w-50 h-full flex flex-col">
+        <div className="relative h-50 overflow-hidden">
           <Image
             src={images.webp.large_image_url}
             alt="anime"
