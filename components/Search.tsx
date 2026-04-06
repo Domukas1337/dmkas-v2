@@ -113,14 +113,14 @@ export default function SearchAnime() {
         </div>
         <div className="flex gap-2">
           <button
-            className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer focus:outline focus:outline-offset-2 focus:outline-zinc-600"
+            className="flex flex-row items-center bg-gray-200 text-black border border-zinc-700 hover:bg-gray-300 font-semibold rounded-md py-2 px-4 self-end hover:cursor-pointer focus:outline focus:outline-offset-2 focus:outline-zinc-600"
             onClick={handleSearch}
           >
             <CiSearch size={19} />
             Search
           </button>
           <button
-            className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-red-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer focus:outline focus:outline-offset-2 focus:outline-zinc-600"
+            className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-red-700 font-semibold rounded-md py-2 px-4 self-end hover:cursor-pointer focus:outline focus:outline-offset-2 focus:outline-zinc-600"
             onClick={handleClear}
           >
             <MdClear size={20} />
@@ -228,14 +228,14 @@ export function SearchManga() {
         </div>
         <div className="flex gap-2">
           <button
-            className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer"
+            className="flex flex-row items-center bg-gray-200 text-black border border-zinc-700 hover:bg-gray-300 font-semibold rounded-md py-2 px-4 self-end hover:cursor-pointer focus:outline focus:outline-offset-2 focus:outline-zinc-600"
             onClick={handleSearch}
           >
             <CiSearch size={20} />
             Search
           </button>
           <button
-            className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-red-700 font-semibold rounded-md py-2.5 px-4 self-end hover:cursor-pointer"
+            className="flex flex-row items-center bg-zinc-800 border border-zinc-700 hover:bg-red-700 font-semibold rounded-md py-2 px-4 self-end hover:cursor-pointer"
             onClick={handleClear}
           >
             <MdClear size={20} />
