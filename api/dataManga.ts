@@ -1,4 +1,4 @@
-import { Manga } from "../../types/Manga";
+import { Manga } from "@/types/Manga";
 
 export async function getMangaBySearch({
   search,
@@ -41,14 +41,14 @@ export async function getMangaBySearch({
   //   }
 
   const res = await fetch(
-    `https://api.jikan.moe/v4/manga?q=${search}&genres=${genre}&format=${format}&status=${status}`
+    `https://api.jikan.moe/v4/manga?q=${search}&genres=${genre}&format=${format}&status=${status}`,
   );
 
   const data = await res.json();
 
   const uniqueData = data.data.filter(
     (item: Manga, index: number) =>
-      data.data.findIndex((i: Manga) => i.mal_id === item.mal_id) === index
+      data.data.findIndex((i: Manga) => i.mal_id === item.mal_id) === index,
   );
 
   return uniqueData;
@@ -57,6 +57,15 @@ export async function getMangaBySearch({
 export async function getMangaDetails({ id }: { id: number }) {
   const res = await fetch(`https://api.jikan.moe/v4/manga/${id}/full`, {
     cache: "force-cache",
+  });
+  const data = await res.json();
+  return data.data;
+}
+
+export async function getMangaCharacters({ id }: { id: number }) {
+  const res = await fetch(`https://api.jikan.moe/v4/manga/${id}/characters`, {
+    cache: "force-cache",
+    next: { revalidate: 3000 },
   });
   const data = await res.json();
   return data.data;

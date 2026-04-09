@@ -44,7 +44,6 @@ export default async function AnimeDetailPage({
                 />
               );
             })}
-            <div className="bg-black" />
           </div>
         </div>
       )}
