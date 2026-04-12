@@ -61,7 +61,7 @@ export default function Home() {
         <p className="sm:text-lg text-sm jetbrains-mono">
           Find your favorite manga and anime with ease.
         </p>
-        <p className="mt-2 jetbrains-mono text-zinc-500 sm:text-base text-xs">
+        <p className="jetbrains-mono text-zinc-500 sm:text-base text-xs">
           Built using{" "}
           <Link
             href="https://nextjs.org/"
