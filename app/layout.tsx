@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   title: "DMKAS",
   description: "DMKAS - A manga and anime searching website",
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.ico",
   },
 };
 
