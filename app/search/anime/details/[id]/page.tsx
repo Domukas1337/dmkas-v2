@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   const { id } = await params;
   const data = await getAnimeDetails({ id: Number(id) });
   return {
-    title: `${data.title}`,
+    title: `${data.title} | DMKAS`,
   };
 }
 

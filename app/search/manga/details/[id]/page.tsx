@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   const { id } = await params;
   const data = await getMangaDetails({ id: Number(id) });
   return {
-    title: `${data.title}`,
+    title: `${data.title} | DMKAS`,
   };
 }
 
