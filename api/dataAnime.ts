@@ -86,7 +86,6 @@ export async function getTopAnime({
       },
     );
     const data = await res.json();
-    // return data.data;
 
     // This had to be added because api gave repeated animes
     const uniqueData = data.data.filter(
