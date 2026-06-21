@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
 
 import { Reviews } from "@/types/Reviews";
 
@@ -42,23 +42,23 @@ export default function Review({ review }: { review: Reviews }) {
       ) : (
         <p className="text-white">{review.review.slice(0, 350)}...</p>
       )}
-      {review.review.length > 350 && !showMore ? (
-        <div className="flex flex-row justify-start">
+      <div className="flex flex-row justify-start font-bold">
+        {review.review.length > 350 && !showMore ? (
           <p
             className="dark:text-white text-lg cursor-pointer hover:text-accent transition-colors duration-150"
             onClick={() => setShowMore(true)}
           >
             Show more
           </p>
-        </div>
-      ) : (
-        <p
-          className="dark:text-white text-lg cursor-pointer hover:text-accent transition-colors duration-150"
-          onClick={() => setShowMore(false)}
-        >
-          Show less
-        </p>
-      )}
+        ) : (
+          <p
+            className="dark:text-white text-lg cursor-pointer hover:text-accent transition-colors duration-150"
+            onClick={() => setShowMore(false)}
+          >
+            Show less
+          </p>
+        )}
+      </div>
       <div className="flex flex-row justify-between items-center mt-1.5">
         <p
           className={`sm:text-lg md:text-2xl font-bold ${
