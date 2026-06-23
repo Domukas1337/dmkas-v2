@@ -133,3 +133,16 @@ export async function getAnimeCharacters({ id }: { id: number }) {
   const data = await res.json();
   return data.data;
 }
+
+export async function getSchedule() {}
+
+export async function getAnimeRelations({ id }: { id: number }) {
+  const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/relations`, {
+    cache: "force-cache",
+    next: { revalidate: 6000 },
+  });
+  const data = await res.json();
+  if (data.data) {
+    return data.data;
+  }
+}
