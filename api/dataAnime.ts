@@ -137,6 +137,7 @@ export async function getAnimeCharacters({ id }: { id: number }) {
 export async function getSchedule() {}
 
 export async function getAnimeRelations({ id }: { id: number }) {
+  setTimeout(() => {}, 1000);
   const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/relations`, {
     cache: "force-cache",
     next: { revalidate: 6000 },

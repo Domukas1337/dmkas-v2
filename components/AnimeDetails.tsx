@@ -29,7 +29,7 @@ export default function AnimeDetails({
 
       <div className="p-4 space-y-3">
         <div>
-          <h2 className="text-white font-bold text-lg">
+          <h2 className="text-white font-bold text-2xl">
             {title_english || title}
           </h2>
           <h3 className="text-gray-300 text-sm">{title_japanese}</h3>
