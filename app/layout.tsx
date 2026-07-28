@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 
-import { Barlow, Geist_Mono, JetBrains_Mono } from "next/font/google";
+import {
+  Barlow,
+  Geist_Mono,
+  JetBrains_Mono,
+  Comfortaa,
+} from "next/font/google";
 
 import Navbar from "@/components/Navbar";
 import "./globals.css";
@@ -21,6 +26,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const comfortaa = Comfortaa({
+  variable: "--font-comfortaa",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "DMKAS",
   description: "DMKAS - A manga and anime searching website",
@@ -37,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${barlow.variable} ${geistMono.variable} ${jetBrainsMono.variable} antialiased`}
+        className={`${barlow.variable} ${geistMono.variable} ${jetBrainsMono.variable} ${comfortaa.variable} antialiased`}
       >
         <Navbar />
         {children}

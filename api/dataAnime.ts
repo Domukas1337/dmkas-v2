@@ -1,4 +1,5 @@
 import type { Anime } from "@/types/Anime";
+import { redirect } from "next/navigation";
 
 export async function getAnimeBySearch({
   search,
@@ -16,6 +17,11 @@ export async function getAnimeBySearch({
       `https://api.jikan.moe/v4/anime?q=${search}&genres=${genre}&status=${status}`,
     );
     const data = await res.json();
+
+    if (res.status !== 200) {
+      console.log("DEBUG: ", data);
+      redirect("/error");
+    }
 
     const uniqueData = data.data.filter(
       (item: Anime, index: number) =>

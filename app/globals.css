@@ -17,68 +17,69 @@
 } */
 
 body {
-  background-color: #000;
-  color: #fff;
+    background-color: #000;
+    color: #fff;
+    font-family: var(--font-comfortaa);
 }
 
 .barlow {
-  font-family: var(--font-barlow);
+    font-family: var(--font-barlow);
 }
 
 .geist-mono {
-  font-family: var(--font-geist-mono);
+    font-family: var(--font-geist-mono);
 }
 
 .jetbrains-mono {
-  font-family: var(--font-jetbrains-mono);
+    font-family: var(--font-jetbrains-mono);
 }
 
 @keyframes fadein-from-top {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadein-from-left {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes review-fadein {
-  from {
-    opacity: 0;
-    transform: translateY(-7px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(-7px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes loading-gradient {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .review-fadein {
-  animation: review-fadein 0.5s ease-in-out;
+    animation: review-fadein 0.5s ease-in-out;
 }
 
 .animate-loading-gradient {
-  animation: loading-gradient 2s infinite;
+    animation: loading-gradient 2s infinite;
 }
