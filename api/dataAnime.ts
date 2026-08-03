@@ -20,7 +20,7 @@ export async function getAnimeBySearch({
 
     if (res.status !== 200) {
       console.log("DEBUG: ", data);
-      redirect("/error");
+      redirect(`/error?message=${data.message}`);
     }
 
     const uniqueData = data.data.filter(
@@ -52,6 +52,11 @@ export async function getCurrentSeason() {
   });
   const data = await res.json();
 
+  if (res.status !== 200) {
+    console.log("DEBUG: ", data);
+    redirect(`/error?message=${data.message}`);
+  }
+
   const uniqueData = data.data.filter(
     (item: Anime, index: number) =>
       data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index,
@@ -67,6 +72,11 @@ export async function getUpcomingSeason() {
   });
 
   const data = await res.json();
+
+  if (res.status !== 200) {
+    console.log("DEBUG: ", data);
+    redirect(`/error?message=${data.message}`);
+  }
 
   const uniqueData = data.data.filter(
     (item: Anime, index: number) =>
@@ -93,6 +103,11 @@ export async function getTopAnime({
     );
     const data = await res.json();
 
+    if (res.status !== 200) {
+      console.log("DEBUG: ", data);
+      redirect(`/error?message=${data.message}`);
+    }
+
     // This had to be added because api gave repeated animes
     const uniqueData = data.data.filter(
       (item: Anime, index: number) =>
@@ -111,6 +126,12 @@ export async function getTopAnime({
       },
     );
     const data = await res.json();
+
+    if (res.status !== 200) {
+      console.log("DEBUG: ", data);
+      redirect(`/error?message=${data.message}`);
+    }
+
     const uniqueData = data.data.filter(
       (item: Anime, index: number) =>
         data.data.findIndex((i: Anime) => i.mal_id === item.mal_id) === index,
@@ -128,6 +149,12 @@ export async function getAnimeDetails({ id }: { id: number }) {
     next: { revalidate: 3000 },
   });
   const data = await res.json();
+
+  if (res.status !== 200) {
+    console.log("DEBUG: ", data);
+    redirect(`/error?message=${data.message}`);
+  }
+
   return data.data;
 }
 
@@ -137,6 +164,12 @@ export async function getAnimeCharacters({ id }: { id: number }) {
     next: { revalidate: 3000 },
   });
   const data = await res.json();
+
+  if (res.status !== 200) {
+    console.log("DEBUG: ", data);
+    redirect(`/error?message=${data.message}`);
+  }
+
   return data.data;
 }
 
@@ -149,6 +182,12 @@ export async function getAnimeRelations({ id }: { id: number }) {
     next: { revalidate: 6000 },
   });
   const data = await res.json();
+
+  if (res.status !== 200) {
+    console.log("DEBUG: ", data);
+    redirect(`/error?message=${data.message}`);
+  }
+
   if (data.data) {
     return data.data;
   }
